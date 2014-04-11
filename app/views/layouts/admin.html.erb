@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Mssd" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Mssd" %>">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <%= render 'layouts/navigation' %>
+</header>
+<main role="main">
+  <%= render 'layouts/messages' %>
+  <%= yield %>
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+  <% end %>
+
+  <% if user_signed_in? %>
+      <% #link_to "My Profile", user_root_path%>
+      <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+  <%end%>
+</main>
+</body>
+</html>

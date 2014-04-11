@@ -15,6 +15,14 @@
     <main role="main">
        <%= render 'layouts/messages' %>
        <%= yield %>
+      <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+      <% end %>
+
+      <% if user_signed_in? %>
+          <% #link_to "My Profile", user_root_path%>
+          <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+      <%end%>
     </main>
   </body>
 </html>

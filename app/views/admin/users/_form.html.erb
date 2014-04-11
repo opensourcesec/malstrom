@@ -1,0 +1,34 @@
+<div class="control-group">
+  <%= f.label :email, t("activerecord.attributes.user.email", :default => "Email"), :class => 'control-label' %>
+  <div class="input">
+    <%= f.text_field :email, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :password, t("activerecord.attributes.user.password", :default => "password"), :class => 'control-label' %>
+  <div class="input">
+    <%= f.password_field :password, :class => 'password_field' %>
+  </div>
+</div>
+<div class="control-group">
+  <%= f.label :Password, t("activerecord.attributes.user.password_confirmation", :default => "password_confirmation"), :class => 'control-label' %>
+  <div class="input">
+    <%= f.password_field :password_confirmation, :class => 'password_field' %>
+  </div>
+</div>
+
+<% for role in Role.find(:all) %>
+    <div class ="control-group">
+      <%= f.label role.name , :class => 'control-label' %>
+      <div class="controls">
+        <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+      </div>
+    </div>
+<% end %>
+
+
+<div class="form-actions">
+  <button class="btn primary" type="submit">Save</button> or
+  <%= link_to "Cancel", admin_users_path %>
+</div>
