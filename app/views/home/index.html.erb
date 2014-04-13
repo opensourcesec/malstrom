@@ -1,4 +1,21 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.email, user %></p>
-<% end %>
+<div class="jumbotron">
+  <% if user_signed_in? %>
+      <h1>Welcome back!</h1>
+      <p class="lead">
+        MSSD Intelligence Dashboard coming soon
+      </p>
+      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+  <% else %>
+      <h1>Welcome, new user!</h1>
+      <p class="lead">
+        You must sign in or sign up before you can access our super sweet,
+        top secret content.
+      </p>
+      <div class="row-fluid">
+        <div class="span6">
+          <%= link_to "Login", new_user_session_path, :class => "btn btn-success" %>
+          <%= link_to "Register", new_user_registration_path, :class => "btn btn-success" %>
+        </div>
+      </div>
+  <% end %>
+</div>
