@@ -18,7 +18,6 @@ class FindArtifacts
     if matches == nil
     else
       puts matches
-      sleep(2)
       domain = Element.new do |i|
         i.value = matches
         i.type = "Domain"
