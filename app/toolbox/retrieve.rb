@@ -1,7 +1,8 @@
 require 'open-uri'
 load 'find_artifacts.rb'
 
-puts '[?] Please provide URL to retrieve:\n> '
+puts '[?] Please provide URL to retrieve:'
+puts '>'
 url = gets
 ipaddr = FindArtifacts.new
 
