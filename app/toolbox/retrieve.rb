@@ -9,5 +9,9 @@ ipaddr = FindArtifacts.new
 open(url) {|f|
   f.each_line {|line|
     str = line.to_str
-    ipaddr.ipv4(str)}
+    if str.start_with?("#")
+    else
+      ipaddr.domain(str)
+      ipaddr.ipv4(str)
+    end}
 }

@@ -7,11 +7,23 @@ class FindArtifacts
       ip = Element.new do |i|
         i.value = matches
         i.type = "IP"
+      ip.save
       end
     end
   end
 
   def domain(item)
-    patt = ''
+    patt = '([a-z0-9]+(?:[\-|\.][a-z0-9]+)*\.[a-z]{2,5}(?:[0-9]{1,5})?)'
+    matches = item.scan(/#{patt}/)
+    if matches == nil
+    else
+      puts matches
+      sleep(2)
+      domain = Element.new do |i|
+        i.value = matches
+        i.type = "Domain"
+      domain.save
+      end
+    end
   end
 end
