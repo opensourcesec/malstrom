@@ -1,2 +1,40 @@
-<h1>Search#search</h1>
-<p>Find me in app/views/search/search.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Feeds</title>
+  <meta name="description" content="Creating a Zebra table with Twitter Bootstrap. Learn with example of a Zebra Table with Twitter Bootstrap.">
+  <link href="/twitter-bootstrap/twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+  <h1>Search</h1>
+</head>
+<body>
+
+<form class="form-search">
+  <div class="input-append">
+    <input type="text" class="span2 search-query">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+<table class="table table-striped">
+
+
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Value</th>
+    <th>Type</th>
+    <th>CN</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @all_elements.each do |item| %>
+      <tr>
+        <td><%= item.value %></td>  #column field1 in your database
+        <td><%= item.type %></td>  #column field2 in your database
+      </tr>
+  <% end %>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

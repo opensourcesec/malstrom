@@ -1,2 +1,30 @@
-<h1>Feeds#feeds</h1>
-<p>Find me in app/views/feeds/feeds.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Feeds</title>
+  <meta name="description" content="Creating a Zebra table with Twitter Bootstrap. Learn with example of a Zebra Table with Twitter Bootstrap.">
+  <link href="/twitter-bootstrap/twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+  <h1>Feeds</h1>
+</head>
+<body>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Last Updated</th>
+    <th>Next Run</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @feeds.each do |feed| %>
+      <tr>
+        <td><%= feed.name %></td>  #column field1 in your database
+        <td><%= feed.last_updated %></td>  #column field2 in your database
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</body>
+</html>
