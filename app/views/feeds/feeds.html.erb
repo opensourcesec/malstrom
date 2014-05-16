@@ -8,23 +8,25 @@
   <h1>Feeds</h1>
 </head>
 <body>
+<div class="span9">
 <table class="table table-striped">
   <thead>
   <tr>
-    <th>ID</th>
     <th>Name</th>
-    <th>Last Updated</th>
-    <th>Next Run</th>
+    <th>URL</th>
+    <th>Tags</th>
   </tr>
   </thead>
   <tbody>
   <% @feeds.each do |feed| %>
       <tr>
-        <td><%= feed.name %></td>  #column field1 in your database
-        <td><%= feed.last_updated %></td>  #column field2 in your database
+        <td><%= feed.name %></td>
+        <td><%= feed.url %></td>
+        <td><%= feed.tags %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
+</div>
 </body>
 </html>
