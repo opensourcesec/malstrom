@@ -8,15 +8,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <%= link_to 'MSSD', root_path, class:'navbar-brand' %>
-          </div>
+      <%= link_to '', root_path, class:'navbar-brand glyphicon glyphicon-home' %>
+       </div>
 
           <% if user_signed_in? %>
               <ul class="nav navbar-nav">
                 <li><%= render 'layouts/navigation_links' %></li>
               </ul>
+              <ul class="nav navbar-nav pull-right">
+                <li><%= render 'layouts/navigation_links2' %></li>
+              </ul>
 
-          <% else %>
+    <% else %>
     <div class="collapse navbar-collapse pull-right" role="navigation">
             <div>
 

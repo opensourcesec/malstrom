@@ -3,8 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>Feeds</title>
-  <meta name="description" content="Creating a Zebra table with Twitter Bootstrap. Learn with example of a Zebra Table with Twitter Bootstrap.">
-  <link href="/twitter-bootstrap/twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
   <h1>Feeds</h1>
 </head>
 <body>
@@ -14,7 +12,8 @@
   <tr>
     <th>Name</th>
     <th>URL</th>
-    <th>Tags</th>
+    <th>Last Update</th>
+    <th>Run Now</th>
   </tr>
   </thead>
   <tbody>
@@ -22,7 +21,8 @@
       <tr>
         <td><%= feed.name %></td>
         <td><%= feed.url %></td>
-        <td><%= feed.tags %></td>
+        <td><%= feed.last_updated %></td>
+        <td>'link to run feed'</td>
       </tr>
   <% end %>
   </tbody>
