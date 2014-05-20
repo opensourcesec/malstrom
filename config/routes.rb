@@ -1,7 +1,9 @@
 MSSD::Application.routes.draw do
   get 'samples/list'
 
-  get 'feeds/feeds'
+  get 'feeds/list'
+
+  get 'feeds/new_feed'
 
   get 'search/search'
 

@@ -1,13 +1,14 @@
 class FeedEngine
   def feed_listing
     Feeds.all.each do |feed|
-      #the code here is called once for each user
+      # the code here is called once for each user
       # user is accessible by 'feed' variable
     end
   end
 
-  def run_feed
-    # function to run individual feeds
+  def update_feed(url)
+    update = Retrieve::Updater.new
+    run = update.retrieval(url)
   end
 
   def run_all_feeds
