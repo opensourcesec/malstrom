@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to '', root_path, class:'navbar-brand glyphicon glyphicon-home' %>
+      <%= link_to '', root_path, class:'navbar-brand glyphicon glyphicon-home glyphicon-white' %>
        </div>
 
           <% if user_signed_in? %>
@@ -22,34 +22,21 @@
     <% else %>
     <div class="collapse navbar-collapse pull-right" role="navigation">
             <div>
-
               <ul class="nav navbar-nav">
                 <!-- The drop down menu -->
-
                 <li><a <%= link_to "Register", new_user_registration_path %></a></li>
-
                 <li class="divider-vertical"></li>
-
                 <li class="dropdown">
-
                   <a class="dropdown-toggle" href="#" data-toggle="dropdown">Login <strong class="caret"></strong></a>
-
                   <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-
                     <!-- Login form here -->
                     <form action="/d/login" method="post" accept-charset="UTF-8">
-
                       <input id="user_username" style="margin-bottom: 15px;" type="text" name="user[username]" size="30" />
-
                       <input id="user_password" style="margin-bottom: 15px;" type="password" name="user[password]" size="30" />
-
                       <input id="user_remember_me" style="float: left; margin-right: 10px;" type="checkbox" name="user[remember_me]" value="1" />
-
                       <label class="string optional" for="user_remember_me"> Remember me</label>
-
                       <a class="right" href="/d/password/new">Forgot password?</a>
                       <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In"/>
-
                     </form>
                   </div>
                 </li>
