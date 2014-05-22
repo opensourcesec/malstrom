@@ -22,7 +22,7 @@
         <td><%= feed.name %></td>
         <td><%= feed.url %></td>
         <td><%= feed.last_updated %></td>
-        <td>'link to run feed'</td>
+        <td><%= button_to "", :method=> update_feed(feed.url), class: 'glyphicon glyphicon-retweet btn btn-primary' %></td>
       </tr>
   <% end %>
   </tbody>
