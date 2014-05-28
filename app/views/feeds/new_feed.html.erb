@@ -3,11 +3,21 @@
 <head>
   <meta charset="utf-8">
   <title>Add Feed</title>
-  <h1>Feed Creation</h1>
+  <h1>Feed Builder</h1>
 </head>
 <body>
-<div class="span9">
-    'New Feeds Go Here'
+<div class="authform pull-left">
+    <%= form_for @add_feed, url: {action: "create", class: "form-horizontal"} do |f| %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, :autofocus => true, class: 'form-control'  %>
+          </div>
+          <div class="form-group">
+            <%= f.label :url %>
+            <%= f.text_field :url, :autofocus => true, class: 'form-control'  %>
+          </div>
+            <%= f.submit :class => "btn btn-primary" %>
+    <% end %>
 </div>
 </body>
 </html>

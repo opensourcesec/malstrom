@@ -8,7 +8,7 @@ class FeedsController < ApplicationController
   end
 
   def new_feed
-
+    @add_feed = Feeds.new
   end
 
   def update_feed(url)
