@@ -1,6 +1,6 @@
 class FindArtifacts
   def ipv4(line, feed)
-    patt = '[\b\w](?:[0-9]{1,3}\.){3}[0-9]{1,3}[\b\w]'
+    patt = '((?:(?:[12]\d?\d?|[1-9]\d|[1-9])\.){3}(?:[12]\d?\d?|[\d+]{1,2}))'
     matches = line.scan(/#{patt}/)
     matches = matches.join
     if matches == nil
