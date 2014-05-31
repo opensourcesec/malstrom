@@ -9,6 +9,10 @@ class FeedsController < ApplicationController
 
   def new_feed
     @add_feed = Feeds.new
+  end
+
+  def create
+    @add_feed = Feeds.new
     if @add_feed.save
       redirect_to :feeds_list, :notice => "Feed has been saved successfully."
     else
