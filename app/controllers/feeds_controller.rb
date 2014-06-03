@@ -7,12 +7,16 @@ class FeedsController < ApplicationController
     @feeds = Feeds.all
   end
 
+  def feed_params
+    params.require(:feeds).permit(:name, :url)
+  end
+
   def new_feed
     @add_feed = Feeds.new
   end
 
   def create
-    @add_feed = Feeds.new
+    @add_feed = Feeds.new(feed_params)
     if @add_feed.save
       redirect_to :feeds_list, :notice => "Feed has been saved successfully."
     else

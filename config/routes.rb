@@ -6,7 +6,7 @@ MSSD::Application.routes.draw do
 
   get 'feeds/new_feed'
 
-  post 'feeds/add_feed' => "feeds#new_feed"
+  post 'feeds/add_feed' => "feeds#create"
   resources :add_feed, :controller => "feeds"
 
   get 'search/search'

@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="authform pull-left">
-    <%= form_for @add_feed, url: {action: "create", class: "form-horizontal"} do |f| %>
+    <%= form_for @add_feed, url: {:action => "create"} do |f| %>
           <div class="form-group">
             <%= f.label :name %>
             <%= f.text_field :name, :autofocus => true, class: 'form-control'  %>
