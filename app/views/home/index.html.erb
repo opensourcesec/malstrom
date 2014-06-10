@@ -1,21 +1,25 @@
-<div class="jumbotron">
+<div class="hero-unit">
+    <div class="page-header">
+      <p class="center"><%= image_tag("Zealousec.png", :size => "260x180", :crop => :fill) %></p>
+    </div>
+        <h1 align="center"><u>Threat Intelligence Dashboard</u></h1>
   <% if user_signed_in? %>
-      <h1>MSSD Intelligence Dashboard coming soon!</h1>
-      <p class="lead">
-        Don't fret. Soon you will be able to correlate and ascertain all the intelligence your heart desires...
-      </p>
       <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
   <% else %>
+    <div class="container-fluid">
+      <center>
       <h1>Welcome!</h1>
       <p class="lead">
         You must sign in or sign up before you can access our super sweet,
         top secret content.
       </p>
-      <div class="row-fluid">
-        <div class="span6">
+        <div class="row-fluid">
+         <div class="span6">
           <%= link_to "Login", new_user_session_path, :class => "btn btn-success" %>
           <%= link_to "Register", new_user_registration_path, :class => "btn btn-success" %>
+         </div>
         </div>
+        </center>
       </div>
   <% end %>
 </div>

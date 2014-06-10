@@ -11,7 +11,7 @@
   <thead>
   <tr>
     <th>Name</th>
-    <th>URL</th>
+    <th>Tags</th>
     <th>Last Update</th>
     <th>Run Now</th>
   </tr>
@@ -20,7 +20,7 @@
   <% @feeds.each do |feed| %>
       <tr>
         <td><%= feed.name %></td>
-        <td><%= feed.url %></td>
+        <td><%= feed.tags %></td>
         <td><%= feed.last_updated %></td>
         <td><%# button_to '', :method=> update_feed(feed.url), :class => 'glyphicon glyphicon-retweet btn btn-primary' %></td>
       </tr>
