@@ -1,10 +1,32 @@
-<div class="hero-unit">
+<div>
     <div class="page-header">
       <p class="center"><%= image_tag("Zealousec.png", :size => "260x180", :crop => :fill) %></p>
+      <!--<h1 align="center"><u>Intelligence Dashboard</u></h1>-->
     </div>
-        <h1 align="center"><u>Threat Intelligence Dashboard</u></h1>
   <% if user_signed_in? %>
-      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => 'btn btn-large btn-danger' %>
+      <div class="container">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h1 class="panel-title">Total Feeds</h1>
+          </div>
+          <div class="panel-body"><%= Feeds.count(:all)%></div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <h1 class="panel-title">Total Indicators</h1>
+            </div>
+          <div class="panel-body"><%= Element.count(:all)%></div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h1 class="panel-title">Total Samples</h1>
+          </div>
+          <div class="panel-body">0</div>
+        </div>
+      </div>
+      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn-large btn-danger" %>
   <% else %>
     <div class="container-fluid">
       <center>

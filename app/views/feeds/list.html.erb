@@ -6,13 +6,17 @@
   <h3>Add Feed <%= link_to '', feeds_new_feed_path, class: 'glyphicon glyphicon-plus btn btn-success' %></h3>
 </head>
 <body>
+<!--<div class="progress">
+  <div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
+    <span class="sr-only">55% Complete</span>
+  </div>-->
+</div>
 <div>
 <table class="table table-striped">
   <thead>
   <tr>
     <th>Name</th>
     <th>Tags</th>
-    <th>Last Update</th>
     <th>Run Now</th>
   </tr>
   </thead>
@@ -21,8 +25,7 @@
       <tr>
         <td><%= feed.name %></td>
         <td><%= feed.tags %></td>
-        <td><%= feed.last_updated %></td>
-        <td><%# button_to '', :method=> update_feed(feed.url), :class => 'glyphicon glyphicon-retweet btn btn-primary' %></td>
+        <td><%# button_to '', :method=> update_feed(feed.url, feed.name), :class => 'btn btn-primary' %></td>
       </tr>
   <% end %>
   </tbody>

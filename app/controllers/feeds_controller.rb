@@ -25,9 +25,9 @@ class FeedsController < ApplicationController
     end
   end
 
-  def update_feed(url)
+  def update_feed(url, name)
     @update = Updater.new
-    @update.retrieval(url)
+    @update.retrieval(url, name)
   end
   helper_method :update_feed
 

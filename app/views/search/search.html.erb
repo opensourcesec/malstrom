@@ -16,10 +16,9 @@
             <span id="search_concept">Filter by</span> <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#contains">Contains</a></li>
-            <li><a href="#its_equal">It's equal</a></li>
-            <li><a href="#greather_than">Greather than ></a></li>
-            <li><a href="#less_than">Less than < </a></li>
+            <li><a href="#ip">IPv4 Address</a></li>
+            <li><a href="#domain">Domain</a></li>
+            <li><a href="#source">Source Feed</a></li>
             <li class="divider"></li>
             <li><a href="#all">Anything</a></li>
           </ul>
@@ -40,14 +39,15 @@
   <tr>
     <th>Value</th>
     <th>Type</th>
-    <th>CN</th>
+    <th>Source</th>
   </tr>
   </thead>
   <tbody>
-  <% @all_elements.each do |item| %>
+  <% @result.each do |item| %>
       <tr>
         <td><%= item.value %></td>
         <td><%= item.kind %></td>
+        <td><%= item.source %></td>
       </tr>
   <% end %>
   </tr>

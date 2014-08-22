@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521221357) do
+ActiveRecord::Schema.define(version: 20140817214501) do
 
   create_table "Elements", force: true do |t|
     t.string   "value"
     t.text     "kind"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "source"
   end
 
   create_table "feeds", force: true do |t|
