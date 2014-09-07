@@ -11,18 +11,18 @@
       <%= link_to '', root_path, class:'navbar-brand glyphicon glyphicon-home glyphicon-white' %>
        </div>
 
-          <% if user_signed_in? %>
-              <ul class="nav navbar-nav">
-                <li><%= render 'layouts/navigation_links' %></li>
-              </ul>
-              <ul class="nav navbar-nav pull-right">
-                <li><%= render 'layouts/navigation_links2' %></li>
-              </ul>
+       <% if user_signed_in? %>
+            <ul class="nav navbar-nav">
+              <li><%= render 'layouts/navigation_links' %></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+              <li><%= render 'layouts/navigation_links2' %></li>
+            </ul>
 
     <% else %>
     <div class="collapse navbar-collapse pull-right" role="navigation">
             <div>
-              <ul class="nav navbar-nav">
+              <ul class="nav navbar-nav pull-left">
                 <!-- The drop down menu -->
                 <li><a <%= link_to "Register", new_user_registration_path %></a></li>
                 <li class="divider-vertical"></li>
@@ -39,7 +39,7 @@
                       <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In"/>
                     </form>
                   </div>
-                </li>
+               </li>
             </div>
           </div>
           <% end %>

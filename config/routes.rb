@@ -9,7 +9,10 @@ MSSD::Application.routes.draw do
   post 'feeds/add_feed' => "feeds#create"
   resources :add_feed, :controller => "feeds"
 
-  get 'search/search'
+  get 'feeds/run_feed' => "feeds#run_feed"
+  resources :run_feed, :controller => "feeds"
+
+  get 'search/indicators'
 
   root :to => "home#index"
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"

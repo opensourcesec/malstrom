@@ -19,6 +19,7 @@
             <li><a href="#ip">IPv4 Address</a></li>
             <li><a href="#domain">Domain</a></li>
             <li><a href="#source">Source Feed</a></li>
+            <li><a href="#sha256">SHA256</a></li>
             <li class="divider"></li>
             <li><a href="#all">Anything</a></li>
           </ul>
@@ -40,6 +41,7 @@
     <th>Value</th>
     <th>Type</th>
     <th>Source</th>
+    <th>Tags</th>
   </tr>
   </thead>
   <tbody>
@@ -48,6 +50,7 @@
         <td><%= item.value %></td>
         <td><%= item.kind %></td>
         <td><%= item.source %></td>
+        <td><%= item.tags %></td>
       </tr>
   <% end %>
   </tr>

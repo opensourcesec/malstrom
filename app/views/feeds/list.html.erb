@@ -25,7 +25,7 @@
       <tr>
         <td><%= feed.name %></td>
         <td><%= feed.tags %></td>
-        <td><%# button_to '', :method=> update_feed(feed.url, feed.name), :class => 'btn btn-primary' %></td>
+        <td><%= link_to '', feeds_run_feed_path(:url => feed.url, :name => feed.name), class: 'glyphicon glyphicon-refresh btn btn-primary' %></td>
       </tr>
   <% end %>
   </tbody>

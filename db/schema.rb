@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817214501) do
+ActiveRecord::Schema.define(version: 20140907035931) do
 
   create_table "Elements", force: true do |t|
     t.string   "value"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140817214501) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "source"
+    t.string   "tags"
   end
 
   create_table "feeds", force: true do |t|
