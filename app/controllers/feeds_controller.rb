@@ -29,7 +29,7 @@ class FeedsController < ApplicationController
     @update = Updater.new
     @update.retrieval(params[:url], params[:name])
     if @update
-      redirect_to :feeds_list, :notice => "Feed initiated successfully."
+      redirect_to :feeds_list, :notice => "Feed updated successfully."
     else
       flash.now[:notice] = "Error: Cannot run feed at this time."
       render :feeds_list_path

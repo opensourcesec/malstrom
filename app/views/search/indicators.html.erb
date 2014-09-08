@@ -18,20 +18,28 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="#ip">IPv4 Address</a></li>
             <li><a href="#domain">Domain</a></li>
-            <li><a href="#source">Source Feed</a></li>
-            <li><a href="#sha256">SHA256</a></li>
+            <li><a href="#source">Source</a></li>
+            <li><a href="#tags">Tags</a></li>
             <li class="divider"></li>
-            <li><a href="#all">Anything</a></li>
+            <li><a href="#all">Default</a></li>
           </ul>
         </div>
         <input type="hidden" name="search_param" value="all" id="search_param">
-        <input type="text" class="form-control" name="x" placeholder="google.com, 4.2.2.2, etc..">
+        <%# form_for @indicators, html: {class: "nifty_form"} do |f| %>
+        <%= search_field(:search, params[:search], placeholder: "google.com, 4.2.2.2, etc..", class: "form-control")%>
             <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-            </span
+                 <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+        <%# end %>
       </div>
     </div>
   </div>
+
+  <%# form_tag(search_indicators_path, :method => "get", id: "search-form") do %>
+    <%# text_field_tag :search, params[:search], placeholder: "Search Indicators" %>
+    <%# submit_tag "Search", :name => nil %>
+  <%# f.submit "Create" %>
+  <%# end %>
 
 
 <table class="table table-striped">
@@ -45,17 +53,17 @@
   </tr>
   </thead>
   <tbody>
-  <% @result.each do |item| %>
+  <% @result.each do |i| %>
       <tr>
-        <td><%= item.value %></td>
-        <td><%= item.kind %></td>
-        <td><%= item.source %></td>
-        <td><%= item.tags %></td>
+        <td><%= i.value %></td>
+        <td><%= i.kind %></td>
+        <td><%= i.source %></td>
+        <td><%= i.tags %></td>
       </tr>
   <% end %>
-  </tr>
   </tbody>
 </table>
+
 
 </body>
 </html>
