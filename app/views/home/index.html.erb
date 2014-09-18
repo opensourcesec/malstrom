@@ -1,7 +1,7 @@
 <div>
     <div class="page-header">
-      <p class="center"><%= image_tag("Zealousec.png", :size => "260x180", :crop => :fill) %></p>
-      <!--<h1 align="center"><u>Intelligence Dashboard</u></h1>-->
+      <!--<p class="center"><%# image_tag("Zealousec.png", :size => "260x180", :crop => :fill) %></p>-->
+      <h1 align="center"><u>Strategix Dashboard</u></h1>
     </div>
   <% if user_signed_in? %>
       <div class="container">
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="center">
-      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn-large btn-danger" %>
+      <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "btn btn-large btn-danger" %>
       </div>
   <% else %>
     <div class="container-fluid">

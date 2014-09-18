@@ -1,13 +1,13 @@
 class SamplesController < ApplicationController
   def samples
-    render "samples/samples"
+    render samples/list#samples_path
   end
 
   def signatures
-    render "samples/signatures"
+    render samples/list#signatures_path
   end
 
   def upload
-    render "samples/upload"
+    render samples/list#upload_path
   end
 end
