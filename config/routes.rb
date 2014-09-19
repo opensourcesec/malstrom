@@ -14,11 +14,14 @@ MSSD::Application.routes.draw do
 
   get 'search/indicators'
 
-  get 'samples/list#samples' => "samples#list_samples"
+  get 'samples/list/_samples' => "samples#samples"
+  resources :samples, :controller => "samples"
 
-  get 'samples/list#signatures' => "samples#list_signatures"
+  get 'samples/list/_signatures' => "samples#signatures"
+  resources :signatures, :controller => "samples"
 
-  get 'samples/list#upload' => "samples#list_upload"
+  get 'samples/list/_upload' => "samples#upload"
+  resources :upload, :controller => "samples"
 
   root :to => "home#index"
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"

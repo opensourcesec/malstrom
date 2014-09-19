@@ -1,32 +1,14 @@
-<div id="samples" class="center box tab-pane active">
-  <form id="frm-file" class="margin-all-0" action="/en/file/upload/" method="post" enctype="multipart/form-data">
-    <div class="file-chooser center">
-      <input id="file-choosen" type="file" name="file" size="50">
-          <span id="file-name" class="file-name" style="-moz-user-select: none;text-align:left;">
-            No file selected
+
+
+<div id="upload" class="center box tab-pane">
+  <form id="frm-search" class="margin-all-0" action="/en/search/" method="post">
+    <div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='b11b37ca126cb5e4a7fbd8a9e1ae5817' /></div>
+    <div class="url-chooser center" style="margin-bottom:28px">
+      <input id="query" type="text" name="query" placeholder="hash, URL, domain, IP address...">
+          <span class="url" style="-moz-user-select: none;">
           </span>
-          <span class="action" style="-moz-user-select:none;">
-            Choose File
+          <span id="query" class="action" style="-moz-user-select: none;">
+            Enter Term
           </span>
     </div>
   </form>
-
-  <div class="text-gray">Maximum file size: 64MB</div>
-
-  <div class="margin-top-2 vt-width-60 text-gray">
-
-    By clicking 'Scan it!', you consent to our
-    <a href="/en/about/terms-of-service/">Terms of Service</a>
-    and allow VirusTotal to <br>
-    share this file with the security community.
-    See our <a href="/en/about/privacy/">Privacy Policy</a>
-    for details.
-
-  </div>
-
-  <div class="margin-top-3">
-    <button id="btn-scan-file"
-            class="btn btn-primary start xlarge"
-            type="submit">Scan it!</button>
-  </div>
-</div>
