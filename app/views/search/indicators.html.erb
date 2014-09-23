@@ -8,8 +8,6 @@
  </div>
 </head>
 <body>
-
-
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
       <div class="input-group">
@@ -26,48 +24,17 @@
             <li><a href="#all">Default</a></li>
           </ul>
         </div>
-        <input type="hidden" name="search_param" value="all" id="search_param">
-        <%# form_for @indicators, html: {class: "nifty_form"} do |f| %>
-        <%= search_field(:search, params[:search], placeholder: "google.com, 4.2.2.2, etc..", class: "form-control")%>
-            <span class="input-group-btn">
-                 <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-            </span>
-        <%# end %>
+        <input type="hidden" name="search_param" id="search_param">
+        <%= form_tag @elements, html: {class: "navbar-form"} do %>
+        <%= search_field(:index, params[:search], placeholder: "google.com, 4.2.2.2, etc..", class: "form-control")%>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+          </span>
+            <!--
+            <span class="btn btn-default">
+             <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+             </span>-->
+           <% end %>
       </div>
     </div>
   </div>
-
-  <%# form_tag(search_indicators_path, :method => "get", id: "search-form") do %>
-    <%# text_field_tag :search, params[:search], placeholder: "Search Indicators" %>
-    <%# submit_tag "Search", :name => nil %>
-  <%# f.submit "Create" %>
-  <%# end %>
-
-
-<table class="table table-striped">
-
-  <thead>
-  <tr>
-    <th>Value</th>
-    <th>Type</th>
-    <th>Source</th>
-    <th>Tags</th>
-  </tr>
-  </thead>
-  <tbody>
-  <!--
-  <%# @result.each do |i| %>
-      <tr>
-        <td><%# i.value %></td>
-        <td><%# i.kind %></td>
-        <td><%# i.source %></td>
-        <td><%# i.tags %></td>
-      </tr>
-  <%# end %>
-  -->
-  </tbody>
-</table>
-
-
-</body>
-</html>

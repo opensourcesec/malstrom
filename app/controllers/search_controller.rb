@@ -3,12 +3,13 @@ class SearchController < ApplicationController
 
   def indicators
     @result = Element.all.each { |i| print i }
-'''
+  end
+
+  def index
     if params[:search]
       @elements = Element.search(params[:search])
     else
-      @elements = Element.all.each { |i| print i }
+      @elements = Element.all.order('created_at DESC')
     end
-'''
   end
 end

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<table class="table table-striped">
+
+  <thead>
+  <tr>
+    <th>Value</th>
+    <th>Type</th>
+    <th>Source</th>
+    <th>Tags</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= @elements.each do |i| %>
+      <tr>
+        <td><%= i.value %></td>
+        <td><%= i.kind %></td>
+        <td><%= i.source %></td>
+        <td><%= i.tags %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+</html>
