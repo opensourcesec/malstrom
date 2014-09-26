@@ -16,7 +16,7 @@
   <thead>
   <tr>
     <th>Name</th>
-    <th>Tags</th>
+    <th>URL</th>
     <th>Run Now</th>
   </tr>
   </thead>
@@ -24,7 +24,7 @@
   <% @feeds.each do |feed| %>
       <tr>
         <td><%= feed.name %></td>
-        <td><%= feed.tags %></td>
+        <td><%= feed.url %></td>
         <td><%= link_to '', feeds_run_feed_path(:url => feed.url, :name => feed.name), class: 'glyphicon glyphicon-retweet btn btn-info' %></td>
       </tr>
   <% end %>

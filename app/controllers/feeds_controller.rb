@@ -18,9 +18,9 @@ class FeedsController < ApplicationController
   def create
     @add_feed = Feeds.new(feed_params)
     if @add_feed.save
-      redirect_to :feeds_list, :notice => "Feed has been saved successfully."
+      redirect_to :feeds_list, :notice => "Feed has been saved successfully!"
     else
-      flash.now[:notice] = "Feed can not be saved, an error occurred"
+      flash.now[:alert] = "Error: Feed can not be saved"
       render :feeds_new_feed_path
     end
   end
@@ -29,9 +29,9 @@ class FeedsController < ApplicationController
     @update = Updater.new
     @update.retrieval(params[:url], params[:name])
     if @update
-      redirect_to :feeds_list, :notice => "Feed updated successfully."
+      redirect_to :feeds_list, :notice => "Feed updated successfully!"
     else
-      flash.now[:notice] = "Error: Cannot run feed at this time."
+      flash.now[:alert] = "Error: Cannot run feed at this time"
       render :feeds_list_path
     end
   end

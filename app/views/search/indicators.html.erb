@@ -25,15 +25,11 @@
           </ul>
         </div>
         <input type="hidden" name="search_param" id="search_param">
-        <%= form_tag @elements, html: {class: "navbar-form"} do %>
-        <%= search_field(:index, params[:search], placeholder: "google.com, 4.2.2.2, etc..", class: "form-control")%>
+        <%= form_tag @index, html: {:action => "index", class: "navbar-form"} do %>
+        <%= search_field(:search, params[:search], placeholder: "google.com, 4.2.2.2, etc..", class: "form-control")%>
           <span class="input-group-btn">
             <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
           </span>
-            <!--
-            <span class="btn btn-default">
-             <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-             </span>-->
            <% end %>
       </div>
     </div>
