@@ -14,6 +14,8 @@ MSSD::Application.routes.draw do
 
   get 'search/indicators'
 
+  get 'search/index'
+
   post 'search/indicators' => "search#index"
   resources :index, :controller => "search"
 
