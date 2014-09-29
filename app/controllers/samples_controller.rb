@@ -1,13 +1,13 @@
 class SamplesController < ApplicationController
   def samples
-    render '_samples'
+    render partial '_samples'
   end
 
   def signatures
-    render '_signatures'
+    render partial '_signatures'
   end
 
   def upload
-    render '_upload'
+    render partial '_upload'
   end
 end

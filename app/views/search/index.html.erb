@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+<h3>
+  Results Found: <%= @results.count %>
+</h3>
 <table class="table table-striped">
-
   <thead>
   <tr>
     <th>Value</th>
     <th>Type</th>
     <th>Source</th>
-    <th>Tags</th>
+    <th>Created</th>
   </tr>
   </thead>
   <tbody>
@@ -16,7 +18,7 @@
         <td><%= i.value %></td>
         <td><%= i.kind %></td>
         <td><%= i.source %></td>
-        <td><%= i.tags %></td>
+        <td><%= i.created_at %></td>
       </tr>
   <% end %>
   </tbody>

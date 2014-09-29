@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907035931) do
+ActiveRecord::Schema.define(version: 20140929014543) do
 
   create_table "Elements", force: true do |t|
     t.string   "value"
@@ -36,9 +36,6 @@ ActiveRecord::Schema.define(version: 20140907035931) do
     t.integer "feed_id", null: false
     t.integer "tag_id",  null: false
   end
-
-  add_index "feeds_tags", ["feed_id", "tag_id"], name: "index_feeds_tags_on_feed_id_and_tag_id"
-  add_index "feeds_tags", ["tag_id", "feed_id"], name: "index_feeds_tags_on_tag_id_and_feed_id"
 
   create_table "samples", force: true do |t|
     t.string   "filename"

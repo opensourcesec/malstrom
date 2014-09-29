@@ -5,22 +5,20 @@ class SearchController < ApplicationController
   end
 
   def index
-    if params[:search]
-      @results = search(params[:search][0])
-    else
+    if params[:search][0].to_s.length < 1
       flash.now[:alert] = "Error: Incorrect search options or no input received"
-      render search_indicators_path
-      #@elements = Element.all.order('created_at DESC')
+      redirect_to search_indicators_path
+    else
+      query = params[:search][0]
+      @result = search(query)
     end
   end
 
   def search(search)
     @results = Element.where("value like ?", "%#{search}%")
-    if @results.nil?
+    if @results.blank?
       flash.now[:alert] = "Error: 0 results found"
       render search_indicators_path
-    else
-      render
     end
   end
 end
