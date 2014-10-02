@@ -1,11 +1,16 @@
-<h3>Malware Samples</h3>
-<p class="pull-left">
-  <%= image_tag("biohazard-orb.png", :size => "100x60", :crop => :fill) %>
-</p>
+<h1 align="center">
+  <b>Malware Samples</b>
+</h1>
 <div class="container">
+  <%= image_tag("biohazard-orb.png", :size => "100x60", :crop => :fill) %>
+</div>
+
+<style type="text/css"> .centerDiv { width: 16%; height:20px; margin: 0 auto;  text-align: center;} </style>
+
+<div class="centerDiv">
   <ul class="nav nav-pills red">
     <li class="<%= 'active' if params[:samples] == 'samples' %>"><a href="#samples" data-toggle="pill">Samples</a></li>
-    <li class="<%= 'active' if params[:samples] == 'signatures' %>"><a href="#signatures" data-toggle="pill">Signatures</a></li>
+    <li class="<%= 'active' if params[:samples] == 'signatures' %>"><a href="#yara" data-toggle="pill">Yara</a></li>
     <li class="<%= 'active' if params[:samples] == 'upload' %>"><a href="#upload" data-toggle="pill">Upload</a></li>
   </ul>
   <div id="box" class="margin-top-3 margin-bottom-3 tab-content center">
