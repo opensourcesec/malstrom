@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(version: 20140929014543) do
     t.integer "tag_id",  null: false
   end
 
+  add_index "feeds_tags", ["feed_id", "tag_id"], name: "index_feeds_tags_on_feed_id_and_tag_id"
+  add_index "feeds_tags", ["tag_id", "feed_id"], name: "index_feeds_tags_on_tag_id_and_feed_id"
+
   create_table "samples", force: true do |t|
     t.string   "filename"
     t.string   "SHA256"

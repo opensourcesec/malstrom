@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
     <li><%= link_to 'Edit account', edit_user_registration_path %></li>
-    <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
+    <li><%= button_to 'Logout', destroy_user_session_path, :method=>'delete', :class => 'btn btn-default navbar-btn' %></li>
 <% else %>
 <% end %>
