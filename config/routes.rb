@@ -12,6 +12,9 @@ MSSD::Application.routes.draw do
   get 'feeds/run_feed' => "feeds#run_feed"
   resources :run_feed, :controller => "feeds"
 
+  get 'feeds/delete_feed' => "feeds#delete_feed"
+  resources :delete_feed, :controller => "feeds"
+
   get 'search/indicators'
 
   get 'search/index'

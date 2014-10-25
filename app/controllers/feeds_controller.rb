@@ -37,9 +37,16 @@ class FeedsController < ApplicationController
   end
   helper_method :update_feed
 
-  def run_all_feeds
-    # function to run every feed in feed_listing
+  def delete_feed
+    @feedname = Feeds.find_by_name(params[:name]).delete
+    if @feedname
+      redirect_to :feeds_list, :notice => "Feed deleted successfully!"
+    else
+      flash.now[:alert] = "Error: Cannot delete feed at this time"
+      render :feeds_list_path
+    end
   end
+  helper_method :delete_feed
 
   def scheduler
     # function to keep track of feed scheduling
