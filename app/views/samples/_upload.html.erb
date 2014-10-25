@@ -1,7 +1,9 @@
+<style type="text/css"> .centerDiv { width: 17%; height:100px; margin: 0 auto;  text-align: center;} </style>
 
-
-<div id="samples" class="center box tab-pane active">
-  <form id="frm-file" class="margin-all-0" action="/en/file/upload/" method="post" enctype="multipart/form-data">
+<div class="tab-pane active" id="#upload">
+  <div class="centerDiv">
+  <p>Choose a file</p>
+  <form id="frm-file" class="margin-all-0" action="/upload" method="post" enctype="multipart/form-data">
     <div class="file-chooser center">
       <input id="file-choosen" type="file" name="file" size="50">
           <span id="file-name" class="file-name" style="-moz-user-select: none;text-align:left;">
@@ -31,4 +33,5 @@
             class="btn btn-primary start xlarge"
             type="submit">Scan it!</button>
   </div>
+ </div>
 </div>

@@ -23,13 +23,13 @@ MSSD::Application.routes.draw do
 
   post 'search/indicators' => "search#index"
 
-  get 'samples/list/_samples' => "samples#samples"
+  get "samples/list/_samples" => 'samples#samples', :as => :samples_samples
   resources :samples, :controller => "samples"
 
-  get 'samples/list/_signatures' => "samples#signatures"
-  resources :signatures, :controller => "samples"
+  get "samples/list/_yara" => 'samples#yara', :as => :samples_yara
+  resources :yara, :controller => "samples"
 
-  get 'samples/list/_upload' => "samples#upload"
+  get "samples/list/_upload" => 'samples#upload', :as => :samples_upload
   resources :upload, :controller => "samples"
 
   root :to => "home#index"

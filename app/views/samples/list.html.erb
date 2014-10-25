@@ -5,12 +5,15 @@
 </div>
 </h1>
 
-<style type="text/css"> .centerDiv { width: 14%; height:20px; margin: 0 auto;  text-align: center;} </style>
-
-<div class="centerDiv">
+<style type="text/css"> .centerDiv { width: 17%; height:20px; margin: 0 auto;  text-align: center;} </style>
+<div id="proftab" class="centerDiv">
     <ul class="nav nav-tabs">
-        <li class="<%= 'active' if current_page?(samples_list_path) %>"><%= link_to "samples" %></li>
-        <li class="<%= 'active' if current_page?("samples/list#yara") %>"><%= link_to "yara" %></li>
-        <li class="<%= 'active' if current_page?("samples/list#upload") %>"><%= link_to "upload" %></li>
-    </ul>
+    <li class="active"><%= link_to "Samples", samples_samples_path, :remote => true, :data => {:toggle=>"tab"} %></li>
+    <li><%= link_to "Yara", samples_yara_path, :remote => true, :data => {:toggle=>"tab"} %></li>
+    <li><%= link_to "Upload", samples_upload_path, :remote => true, :data => {:toggle=>"tab"} %></li>
+  </ul>
+</div>
+<div class="row">
+  <div id="profile" class="span9">
+  </div>
 </div>
