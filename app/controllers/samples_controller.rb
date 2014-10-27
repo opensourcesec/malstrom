@@ -1,5 +1,5 @@
 class SamplesController < ApplicationController
-  def samples
+  def samplelist
     respond_to do |format|
       format.js
     end

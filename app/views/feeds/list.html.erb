@@ -26,8 +26,8 @@
       <tr>
         <td><%= feed.name %></td>
         <td><%= feed.url %></td>
-        <td><%= link_to '', feeds_run_feed_path(:url => feed.url, :name => feed.name), class: 'glyphicon glyphicon-retweet btn btn-info' %></td>
-        <td><%= link_to '', feeds_delete_feed_path(:name => feed.name), class: 'glyphicon glyphicon-trash btn btn-info' %></td>
+        <td><%= link_to '', feeds_run_feed_path(:url => feed.url, :name => feed.name), class: 'glyphicon glyphicon-retweet btn btn-primary' %></td>
+        <td><%= link_to '', feeds_delete_feed_path(:name => feed.name), class: 'glyphicon glyphicon-trash btn btn-danger' %></td>
       </tr>
   <% end %>
   </tbody>

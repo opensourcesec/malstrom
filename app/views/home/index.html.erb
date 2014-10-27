@@ -5,23 +5,23 @@
     </div>
   <% if user_signed_in? %>
       <div class="container">
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
           <div class="panel-heading">
             <h1 class="panel-title">Total Feeds</h1>
           </div>
           <div class="panel-body"><%= Feeds.count(:all)%></div>
         </div>
 
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
             <div class="panel-heading">
               <h1 class="panel-title">Total Indicators</h1>
             </div>
           <div class="panel-body"><%= Element.count(:all)%></div>
         </div>
 
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
           <div class="panel-heading">
-            <h1 class="panel-title">Total Samples</h1>
+            <h1 class="panel-title">Total Malware Samples</h1>
           </div>
           <div class="panel-body"><%= Sample.count(:all)%></div>
         </div>
@@ -30,14 +30,10 @@
   <% else %>
     <div class="container-fluid">
       <center>
-      <h1>Welcome!</h1>
-      <p class="lead">
-        Please login or register, then you may be deemed worthy to access the secrets within
-      </p>
         <div class="row-fluid">
          <div class="span6">
-          <%= link_to "Login", new_user_session_path, :class => "btn btn-success" %>
-          <%= link_to "Register", new_user_registration_path, :class => "btn btn-success" %>
+          <%= link_to "Login", new_user_session_path, :class => "btn btn-primary" %>
+          <%= link_to "Register", new_user_registration_path, :class => "btn btn-primary" %>
          </div>
         </div>
         </center>
