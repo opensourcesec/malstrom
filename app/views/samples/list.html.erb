@@ -5,8 +5,8 @@
 
 <style type="text/css"> .centerDiv { width: 17%; height:20px; margin: 0 auto;  text-align: center;} </style>
 <div id="proftab" class="center">
-    <ul class="nav nav-tabs">
-    <li class="active"><%= link_to "Samples", samples_samplelist_path, :remote => true, :data => {:toggle=>"tab"} %></li>
+    <ul class="nav nav-pills">
+    <li><%= link_to "Samples", samples_samplelist_path, :remote => true, :data => {:toggle=>"tab"} %></li>
     <li><%= link_to "Yara", samples_yara_path, :remote => true, :data => {:toggle=>"tab"} %></li>
     <li><%= link_to "Upload", samples_upload_path, :remote => true, :data => {:toggle=>"tab"} %></li>
   </ul>

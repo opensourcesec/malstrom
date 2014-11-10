@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>Feeds</title>
-  <h3>Add Feed <%= link_to '', feeds_new_feed_path, class: 'glyphicon glyphicon-plus btn btn-success' %></h3>
+  <h4>
+    <%= image_tag("rss_cube.png", :size => "65x35", :style => "float :left",:crop => :fill) %>
+    Add Threat Feed <%= link_to '', feeds_new_feed_path, class: 'glyphicon glyphicon-plus btn btn-success' %>
+  </h4>
 </head>
 <body>
 <!--<div class="progress">

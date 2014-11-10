@@ -1,7 +1,24 @@
 <style type="text/css"> .centerDiv { width: 17%; height:20px; margin: 0 auto;  text-align: center;} </style>
 
 <div class="tab-pane active" id="#signatures">
-  <div class="centerDiv">
-    <p>MANAGE YARA SIGNATURES</p>
+  <div class="container">
+    <h5>Add new yara signature <%= link_to '', samples_new_yara_path, :class => 'glyphicon glyphicon-plus btn btn-success' %></h5>
+    <h5>Scan all samples with current rule set <%= link_to '', samples_list_path, :class => 'glyphicon glyphicon-refresh btn btn-success' %></h5>
+  </div>
+  <div class="container" style="float:">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Filename</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%# @sigs.each do |sig| %>
+          <tr>
+            <td><%= @sigs %></td>
+          </tr>
+      <%# end %>
+      </tbody>
+    </table>
   </div>
 </div>

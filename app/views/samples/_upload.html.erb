@@ -1,7 +1,23 @@
 <style type="text/css"> .centerDiv { width: 17%; height:100px; margin: 0 auto;  text-align: center;} </style>
 
 <div class="tab-pane active" id="#upload">
-  <div class="centerDiv">
-    <p>UPLOAD FILES</p>
-  </div>
+  <div class="container">
+    <h4><span class="glyphicon glyphicon-upload"></span> Upload new samples:</h4>
+    <%= form_tag({action: :upload}, multipart: true) do %>
+          <%= file_field_tag 'malz' %>
+    <h5>Encrypted?
+      <div class="row">
+       <div class="col-lg-6">
+        <div class="input-group">
+         <span class="input-group-addon">
+          <input type="checkbox">
+         </span>
+          <input type="text" class="form-control" placeholder="password">
+       </div><!-- /input-group -->
+     </div><!-- /.col-lg-6 -->
+     </div>
+    </h5>
+    <% end %>
+   </div>
+   </div>
 </div>

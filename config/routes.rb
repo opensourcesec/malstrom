@@ -32,6 +32,8 @@ MSSD::Application.routes.draw do
   get "samples/list/_upload" => 'samples#upload', :as => :samples_upload
   resources :upload, :controller => "samples"
 
+  get "samples/new_yara" => "samples#new_yara"
+
   root :to => "home#index"
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
   resources :users
