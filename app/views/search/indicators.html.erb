@@ -13,7 +13,7 @@
     <div class="col-xs-8 col-xs-offset-2">
       <div class="input-group">
         <div class="input-group-btn search-panel">
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
             <span id="search_concept">Filter by</span> <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
@@ -23,13 +23,13 @@
             <li><a href="#tags">Tags</a></li>
             <li class="divider"></li>
             <li><a href="#all">Default</a></li>
-          </ul>
-        </div>
-        <input type="hidden" name="search_param" id="search_param">
+          </ul>-->
+          <input type="hidden" name="search_param" id="search_param">
             <%= form_tag @_index, html: {:action => "index"} do %>
             <%= search_field(:search, params[:search], placeholder: "google.com, 4.2.2.2, etc..", class: "form-control")%>
             <%= button_tag("", class: "btn btn-success glyphicon glyphicon-search", type: "submit")%>
         <% end %>
+        </div>
       </div>
     </div>
   </div>

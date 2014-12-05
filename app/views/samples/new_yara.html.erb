@@ -1,8 +1,12 @@
 <div class="container" style="float:left">
-  <h4>Add New Yara</h4>
-  <%= form_tag("/save_sig", method: "get") do %>
+  <h4>Compose Yara Signature</h4>
+  <%= form_tag("save_sig", method: "post") do %>
       <%= label_tag(:q, '') %>
       <%= text_area_tag(:q, '', size: "60x10") %>
       <%= submit_tag("Save", class: "btn btn-primary") %>
   <% end %>
+</div>
+
+<div class="container" style="float:">
+  <h4>OR you can upload a rule file</h4>
 </div>

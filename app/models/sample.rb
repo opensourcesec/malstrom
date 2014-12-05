@@ -1,4 +1,6 @@
 class Sample < ActiveRecord::Base
+  has_attached_file :malz
+
   def samples
     render partial 'samples'
   end
@@ -11,6 +13,8 @@ class Sample < ActiveRecord::Base
     render partial 'upload'
   end
 
-  @sigs = Dir.pwd
+  def upload_malz
+    @sigs = Dir.pwd
 
+  end
 end

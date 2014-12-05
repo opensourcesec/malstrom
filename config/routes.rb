@@ -32,7 +32,11 @@ MSSD::Application.routes.draw do
   get "samples/list/_upload" => 'samples#upload', :as => :samples_upload
   resources :upload, :controller => "samples"
 
+  post "samples/list/_upload" => "samples#upload_malz"
+
   get "samples/new_yara" => "samples#new_yara"
+
+  post "samples/save_sig" => "samples#process_sig"
 
   root :to => "home#index"
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"

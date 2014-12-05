@@ -3,7 +3,7 @@
 <div class="tab-pane active">
   <div class="container">
   <%= form_tag("/search", method: "get") do %>
-      <%= label_tag(:q, "Find Samples:") %>
+      <%= label_tag(:q, "") %>
       <%= text_field_tag(:q) %>
       <%= submit_tag("Search", class: "btn btn-info") %>
   <% end %>
