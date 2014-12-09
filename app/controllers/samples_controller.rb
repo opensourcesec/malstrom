@@ -22,7 +22,10 @@ class SamplesController < ApplicationController
 
   def upload_malz
     #upload malware with this function
-    redirect_to samples_list_path, :notice => "Malware has been uploaded successfully!"
+    @sample = Samples.new(sample_params)
+    @sample.malz = params[:samples][:malz]
+    if @sample.save
+      redirect_to samples_list_path, :notice => "Malware has been uploaded successfully!"
   end
 
   def process_sig

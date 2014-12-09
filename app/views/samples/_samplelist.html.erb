@@ -1,25 +1,27 @@
 <style type="text/css"> .centerDiv { width: 17%; height:100px; margin: 0 auto;  text-align: center;} </style>
 
 <div class="tab-pane active">
-  <div class="container">
-  <%= form_tag("/search", method: "get") do %>
-      <%= label_tag(:q, "") %>
-      <%= text_field_tag(:q) %>
-      <%= submit_tag("Search", class: "btn btn-info") %>
-  <% end %>
- <div id="proftab" class="center">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>Filename</th>
-      <th>MD5</th>
-      <th>Type</th>
-      <th>Attribution</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+
+   <div class="container">
+     <p>
+       <%= form_tag("/search", method: "get") do %>
+           <%= label_tag(:q, "") %>
+           <%= text_field_tag(:q) %>
+           <%= submit_tag("Search", class: "btn btn-info") %>
+       <% end %>
+     </p>
+   <table class="table table-striped">
+     <thead>
+        <tr>
+            <th>Filename</th>
+            <th>MD5</th>
+            <th>Type</th>
+            <th>Attribution</th>
+        </tr>
+     </thead>
+        <tbody>
+        </tbody>
+    </table>
    <nav>
      <ul class="pagination">
        <li class="disabled"><a href="#">&laquo;</a></li>
@@ -28,6 +30,5 @@
        <li><a href="#">3<span></span></a></li>
      </ul>
    </nav>
- </div>
  </div>
 </div>

@@ -26,9 +26,9 @@
           </ul>-->
           <input type="hidden" name="search_param" id="search_param">
             <%= form_tag @_index, html: {:action => "index"} do %>
-            <%= search_field(:search, params[:search], placeholder: "google.com, 4.2.2.2, etc..", class: "form-control")%>
-            <%= button_tag("", class: "btn btn-success glyphicon glyphicon-search", type: "submit")%>
-        <% end %>
+              <%= search_field(:search, params[:search], placeholder: "google.com, 4.2.2.2, etc..", class: "form-control")%>
+              <%= button_tag("", class: "btn btn-success glyphicon glyphicon-search", type: "submit")%>
+            <% end %>
         </div>
       </div>
     </div>

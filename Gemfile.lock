@@ -154,7 +154,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
-  paperclip
+  paperclip (~> 4.1.1)
   quiet_assets
   rails (= 4.1.0.rc2)
   rails_layout

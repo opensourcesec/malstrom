@@ -1,5 +1,8 @@
 class Sample < ActiveRecord::Base
   has_attached_file :malz
+  validates_attachment :malz,
+                       :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png", "application/pdf",
+                                                            "application/zip", "application/gzip", "application/octet-stream", ] }
 
   def samples
     render partial 'samples'
@@ -13,8 +16,4 @@ class Sample < ActiveRecord::Base
     render partial 'upload'
   end
 
-  def upload_malz
-    @sigs = Dir.pwd
-
-  end
 end
