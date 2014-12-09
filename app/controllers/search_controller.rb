@@ -17,7 +17,7 @@ class SearchController < ApplicationController
   def search(search)
     @results = Element.where("value like ?", "%#{search}%")
     if @results.blank?
-      flash.now[:alert] = "Error: 0 results found"
+      flash.now[:alert] = "Sorry.. 0 results found"
       render search_indicators_path
     end
   end

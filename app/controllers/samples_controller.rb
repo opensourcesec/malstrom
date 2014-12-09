@@ -4,6 +4,8 @@ class SamplesController < ApplicationController
     respond_to do |format|
       format.js
     end
+
+    @all_malz = Sample.all
   end
 
   def yara
@@ -22,10 +24,10 @@ class SamplesController < ApplicationController
 
   def upload_malz
     #upload malware with this function
-    @sample = Samples.new(sample_params)
-    @sample.malz = params[:samples][:malz]
+    @sample = Sample.new(params[:sample])
     if @sample.save
-      redirect_to samples_list_path, :notice => "Malware has been uploaded successfully!"
+      redirect_to samples_list_path, :notice => "Sample has been uploaded successfully!"
+    end
   end
 
   def process_sig
