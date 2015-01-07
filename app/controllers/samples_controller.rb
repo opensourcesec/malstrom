@@ -1,11 +1,12 @@
 class SamplesController < ApplicationController
+
+@all_malz = Sample.all
+
   def samplelist
     #samples partial
     respond_to do |format|
       format.js
     end
-
-    @all_malz = Sample.all
   end
 
   def yara
@@ -30,8 +31,8 @@ class SamplesController < ApplicationController
     end
   end
 
-  def process_sig
-    #processes saved yara signatures
+  def add_rule
+    # add yara signatures
     redirect_to samples_list_path, :notice => "New signature has been uploaded successfully!"
   end
 end

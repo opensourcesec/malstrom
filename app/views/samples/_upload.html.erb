@@ -3,7 +3,7 @@
 <div class="tab-pane active" id="#upload">
   <div class="container">
     <h4><span class="glyphicon glyphicon-upload"></span> Upload new samples:</h4>
-        <%= form_tag @sample, html: {action: :upload_malz}, multipart: true do %>
+        <%= form_tag @upload_malz, html: {action: :upload_malz}, multipart: true do %>
           <%= file_field_tag 'malz' %>
         <h5>Encrypted?</h5>
         <div class="row">

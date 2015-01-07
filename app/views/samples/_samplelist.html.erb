@@ -20,13 +20,13 @@
         </tr>
      </thead>
         <tbody>
-        <%# @all_malz.each do |mal| %>
-            <!--<tr>mal.malz_filename</tr>
+        <%= @all_malz.each do |mal| %>
+            <tr>mal.malz_filename</tr>
             <tr>mal.SHA256</tr>
             <tr>mal.malz_content_type</tr>
             <tr>mal.malz_file_size</tr>
             </tbody>-->
-        <%# end %>
+        <% end %>
     </table>
    <nav>
      <ul class="pagination">

@@ -38,6 +38,8 @@ MSSD::Application.routes.draw do
 
   post "samples/save_sig" => "samples#process_sig"
 
+  post "samples/addrule" => "samples#add_rule"
+
   root :to => "home#index"
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
   resources :users
