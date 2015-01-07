@@ -4,28 +4,29 @@
       <h1 align="center">{ Intelligence Center }</h1>
     </div>
   <% if user_signed_in? %>
-      <div class="container">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h1 class="panel-title">Total Feeds</h1>
-          </div>
-          <div class="panel-body"><%= Feeds.count(:all)%></div>
-        </div>
-
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h1 class="panel-title">Total Indicators</h1>
-            </div>
-          <div class="panel-body"><%= Element.count(:all)%></div>
-        </div>
-
-        <div class="panel panel-primary">
+      <div class="container" style="float:">
+        <div class="panel panel-default">
           <div class="panel-heading">
             <h1 class="panel-title">Total Malware Samples</h1>
           </div>
           <div class="panel-body"><%= Sample.count(:all)%></div>
         </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h1 class="panel-title">Total Indicators</h1>
+          </div>
+          <div class="panel-body"><%= Element.count(:all)%></div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h1 class="panel-title">Total Feeds</h1>
+          </div>
+          <div class="panel-body"><%= Feeds.count(:all)%></div>
+        </div>
       </div>
+
 
   <% else %>
     <div class="container-fluid">
