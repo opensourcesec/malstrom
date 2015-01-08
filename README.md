@@ -1,4 +1,4 @@
 Strategix  
----------
-Open-Source Threat Intelligence Platform
 ========
+Open-Source Threat Intelligence Platform
+---------
