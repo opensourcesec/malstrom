@@ -15,5 +15,4 @@ class Sample < ActiveRecord::Base
   def upload
     render partial 'upload'
   end
-
 end

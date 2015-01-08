@@ -3,22 +3,15 @@
 <div class="tab-pane active" id="#signatures">
     <div class="container">
     <h5>Add new yara signature <%= link_to '', samples_new_yara_path, :class => 'glyphicon glyphicon-plus btn btn-success' %></h5>
-    <h5>Scan all samples with current rule set <%= link_to '', samples_list_path, :class => 'glyphicon glyphicon-refresh btn btn-success' %></h5>
+    <h5>Scan all samples with current rule set <%= link_to '', samples_list_path, :class => 'glyphicon glyphicon-refresh btn btn-info' %></h5>
       </div>
   <div class="container" style="float:">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>Filename</th>
-      </tr>
-      </thead>
-      <tbody>
-      <%# @sigs.each do |sig| %>
-          <tr>
-            <td><%= @sigs %></td>
-          </tr>
+    <div class="list-group">
+      <a href="#" class="list-group-item disabled">
+        Yara Rules
+      <%# @rules.each do |x| %>
+        <a href="#" class="list-group-item"><%# x %></a>
       <%# end %>
-      </tbody>
-    </table>
+    </div>
   </div>
 </div>

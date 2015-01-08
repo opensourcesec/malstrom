@@ -2,8 +2,16 @@
   <h4>Compose Yara Signature</h4>
   <%= form_tag("addrule", method: "post") do %>
       <%= label_tag(:q, '') %>
-      <%= text_area_tag(:q, '', size: "60x10") %>
-      <%= submit_tag("Save", class: "btn btn-primary") %>
+      <div>
+        Rule Name <%= text_field_tag(:rule_name, '') %>
+      </div>
+      Rule Body
+      <div>
+      <%= text_area_tag(:rule_body, '', size: "100x15") %>
+      </div>
+      <div>
+        <%= submit_tag("Save", class: "btn btn-primary") %>
+      </div>
   <% end %>
 </div>
 
