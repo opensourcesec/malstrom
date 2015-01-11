@@ -1,7 +1,7 @@
 class Sample < ActiveRecord::Base
   has_attached_file :malz,
                     :url  => "/assets/malware/:basename.:extension",
-                    :path => ":rails_root/public/assets/malware/:basename.:extension"
+                    :path => ":rails_root/assets/malware/:basename.:extension"
 
   validates_attachment :malz,
                        :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png", "application/pdf",

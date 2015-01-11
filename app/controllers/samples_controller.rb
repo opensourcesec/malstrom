@@ -43,6 +43,8 @@ require 'digest'
       #sha256hash = Digest::SHA256.file(@sample.tempfile).hexdigest
       #Sample.SHA256 = sha256hash
     end
+    @sample.filename = params[:filename]
+    @sample.malz = params[:malz]
     if @sample.save
       redirect_to samples_list_path, :notice => "Sample has been uploaded successfully!"
     end
