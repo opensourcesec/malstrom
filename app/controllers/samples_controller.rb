@@ -2,7 +2,6 @@ class SamplesController < ApplicationController
 
 require 'digest'
 
-@all_malz = Sample.all
 
   ## Required javascript to render partials ##
   def samplelist
@@ -10,6 +9,8 @@ require 'digest'
     respond_to do |format|
       format.js
     end
+    @all_malz = Sample.all
+
   end
 
   def yara
