@@ -2,14 +2,14 @@
 
 <div class="tab-pane active">
 
-   <div class="container">
-     <p>
+   <div>
+     <div class="container">
        <%= form_tag("/search", method: "get") do %>
            <%= label_tag(:q, "") %>
            <%= text_field_tag(:q) %>
            <%= submit_tag("Search", class: "btn btn-info") %>
        <% end %>
-     </p>
+     </div>
    <table class="table table-striped">
      <thead>
         <tr>
@@ -21,7 +21,7 @@
      </thead>
         <tbody>
         <%# @all_malz.each do |mal| %>
-           <!-- <tr>mal.malz_filename</tr>
+           <!--<tr>mal.malz_filename</tr>
             <tr>mal.SHA256</tr>
             <tr>mal.malz_content_type</tr>
             <tr>mal.malz_file_size</tr>

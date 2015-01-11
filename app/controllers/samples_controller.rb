@@ -1,7 +1,10 @@
 class SamplesController < ApplicationController
 
+require 'digest'
+
 @all_malz = Sample.all
 
+  ## Required javascript to render partials ##
   def samplelist
     #samples partial
     respond_to do |format|
@@ -24,17 +27,34 @@ class SamplesController < ApplicationController
       format.js
     end
   end
+  ## End of JS for partials ##
 
+  # malware upload functions
   def upload_malz
-    #upload malware with this function
-    @sample = Sample.new(params[:sample])
+    @sample = Sample.new( params[:sample] )
+    if params[:box]
+      #Zip::File.open(@sample) do |zipfile|
+      #  zipfile.each do |data|
+      #    sha256hash = Digest::SHA256.file(params).hexdigest
+      #    Sample.sha256 = sha256hash
+      #  end
+      #end
+    else
+      #sha256hash = Digest::SHA256.file(@sample.tempfile).hexdigest
+      #Sample.SHA256 = sha256hash
+    end
     if @sample.save
       redirect_to samples_list_path, :notice => "Sample has been uploaded successfully!"
     end
   end
 
+  # params for sample uploads
+  def sample_params
+    params.require(:sample).permit(:filename, :malz, :hash)
+  end
+
+  # add yara signatures
   def add_rule
-    # add yara signatures
     new_rule_content = params[:rule_body]
     patt = 'rule.+\{'
     syntax_check = /#{patt}/.match(new_rule_content)
@@ -43,7 +63,7 @@ class SamplesController < ApplicationController
       return
     end
     rule_name = params[:rule_name]
-    new_rule_path = "app/assets/yara/#{rule_name}"
+    new_rule_path = "app/assets/yara/#{rule_name}.yar"
     begin
       File.write(new_rule_path, new_rule_content)
       redirect_to samples_list_path, :notice => "New signature has been uploaded successfully!"

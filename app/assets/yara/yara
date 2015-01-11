@@ -1,3 +1,0 @@
-rule yara {
-  test rule
-}
