@@ -2,6 +2,10 @@ class SamplesController < ApplicationController
 
 require 'digest'
 
+def list
+  # Local var for Sample list
+  all_malz = Sample.all
+end
 
   ## Required javascript to render partials ##
   def samplelist
@@ -9,8 +13,6 @@ require 'digest'
     respond_to do |format|
       format.js
     end
-    @all_malz = Sample.all
-
   end
 
   def yara

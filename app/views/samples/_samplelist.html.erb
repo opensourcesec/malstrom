@@ -10,6 +10,7 @@
            <%= submit_tag("Search", class: "btn btn-info") %>
        <% end %>
      </div>
+     <% @all_malz = Sample.all %>
    <table class="table table-striped">
      <thead>
         <tr>
@@ -21,12 +22,12 @@
         </tr>
      </thead>
         <tbody>
-        <%= @all_malz.each do |mal| %>
-            <tr><% mal.id %></tr>
-            <tr><% mal.malz_filename %></tr>
-            <tr><% mal.SHA256 %></tr>
-            <tr><% mal.malz_content_type %></tr>
-            <tr><% mal.malz_file_size %></tr>
+        <% @all_malz.each do |mal| %>
+            <td><%= mal.id %></td>
+            <td><%= mal.malz_file_name %></td>
+            <td><%# mal.malz_file_hash %></td>
+            <td><%= mal.malz_content_type %></td>
+            <td><%= mal.malz_file_size %></td>
             </tbody>
         <% end %>
     </table>

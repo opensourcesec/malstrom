@@ -4,6 +4,7 @@ class FeedsController < ApplicationController
   before_filter :authenticate_user!
 
   def list
+    # Local var for Feed listing
     @feeds = Feeds.all
   end
 
