@@ -3,15 +3,15 @@
 <div class="tab-pane active" id="#signatures">
     <div class="container">
     <h5>Add new yara signature <%= link_to '', samples_new_yara_path, :class => 'glyphicon glyphicon-plus btn btn-success' %></h5>
-    <h5>Scan all samples with current rule set <%= link_to '', samples_list_path, :class => 'glyphicon glyphicon-refresh btn btn-info' %></h5>
+    <h5>Scan samples with entire rule set <%= link_to '', samples_list_path, :class => 'glyphicon glyphicon-refresh btn btn-info' %></h5>
       </div>
-  <div class="container" style="float:">
+  <% @rules = Dir["app/assets/yara/*.yar"] %>
+  <div class="container">
     <div class="list-group">
-      <a href="#" class="list-group-item disabled">
-        Yara Rules
-      <%# @rules.each do |x| %>
-        <a href="#" class="list-group-item"><%# x %></a>
-      <%# end %>
+      <a href="#" class="list-group-item active">Yara Rules</a>
+      <% @rules.each do |x| %>
+        <a href="#" class="list-group-item"><%= File.basename(x) %></a>
+      <% end %>
     </div>
   </div>
 </div>

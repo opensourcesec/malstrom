@@ -1,11 +1,7 @@
 class SamplesController < ApplicationController
 
 require 'digest'
-
-def list
-  # Local var for Sample list
-  all_malz = Sample.all
-end
+require 'zip'
 
   ## Required javascript to render partials ##
   def samplelist
@@ -21,7 +17,6 @@ end
       format.js
     end
 
-    @rules = Dir.entries('app/assets/yara/')
   end
 
   def upload
@@ -36,17 +31,12 @@ end
   def upload_malz
     @sample = Sample.new( params[:sample] )
     if params[:box]
-      #Zip::File.open(@sample) do |zipfile|
-      #  zipfile.each do |data|
-      #    sha256hash = Digest::SHA256.file(params).hexdigest
-      #    Sample.sha256 = sha256hash
-      #  end
-      #end
-    else
-      #sha256hash = Digest::SHA256.file(@sample.tempfile).hexdigest
-      #Sample.SHA256 = sha256hash
+      Zip::File.open(@sample) do |zipfile|
+        zipfile.each do |data|
+          @sample.malz = data
+        end
+      end
     end
-    @sample.filename = params[:filename]
     @sample.malz = params[:malz]
     if @sample.save
       redirect_to samples_list_path, :notice => "Sample has been uploaded successfully!"
