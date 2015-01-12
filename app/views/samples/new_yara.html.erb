@@ -3,9 +3,9 @@
   <%= form_tag("addrule", method: "post") do %>
       <%= label_tag(:q, '') %>
       <div>
-        Rule Name: <%= text_field_tag(:rule_name, '') %>.yar
+        <h5>Rule Name:</h5><%= text_field_tag(:rule_name, '') %>.yar
       </div>
-      Rule Body
+      <h5>Rule Content</h5>
       <div>
       <%= text_area_tag(:rule_body, '', size: "100x15") %>
       </div>
@@ -14,7 +14,7 @@
       </div>
   <% end %>
 </div>
-
+<!--
 <div class="container" style="float:">
   <h4>OR you can upload a rule file</h4>
-</div>
+</div>-->

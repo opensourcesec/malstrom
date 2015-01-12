@@ -1,7 +1,7 @@
 class SamplesController < ApplicationController
 
 require 'digest'
-require 'zip'
+require 'Zip'
 
   ## Required javascript to render partials ##
   def samplelist
