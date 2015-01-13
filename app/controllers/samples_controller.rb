@@ -1,7 +1,8 @@
 class SamplesController < ApplicationController
 
 require 'digest'
-require 'Zip'
+require 'zip'
+require 'analyzer'
 
   ## Required javascript to render partials ##
   def samplelist
@@ -41,6 +42,10 @@ require 'Zip'
     if @sample.save
       redirect_to samples_list_path, :notice => "Sample has been uploaded successfully!"
     end
+
+    #analyze = Analysis.new
+    #analyze.hashes(@sample.malz.path, @sample.malz_file_name)
+
   end
 
   # params for sample uploads

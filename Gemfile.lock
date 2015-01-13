@@ -66,8 +66,11 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    digest (0.0.1)
     erubis (2.7.0)
     execjs (2.0.2)
+    exifr (1.2.0)
+    hex_string (1.0.1)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.0.6)
@@ -80,9 +83,11 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metasm (1.0.2)
     mime-types (1.25.1)
     minitest (5.3.2)
     multi_json (1.9.2)
+    netrc (0.10.2)
     orm_adapter (0.5.0)
     polyglot (0.3.4)
     quiet_assets (1.0.2)
@@ -109,6 +114,9 @@ GEM
     rake (10.2.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -158,12 +166,18 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise
+  digest
+  exifr
+  hex_string
   jbuilder (~> 2.0)
   jquery-rails
+  json
+  metasm
   paperclip!
   quiet_assets
   rails (= 4.1.0.rc2)
   rails_layout
+  rest-client
   sass-rails (~> 4.0.2)
   sdoc (~> 0.4.0)
   simple_form
