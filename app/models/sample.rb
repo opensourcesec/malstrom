@@ -1,4 +1,5 @@
 class Sample < ActiveRecord::Base
+  has_many :tags, as: :taggable
   has_attached_file :malz,
                     :url  => "/assets/malware/:basename.:extension",
                     :path => ":rails_root/app/assets/malware/:basename.:extension"

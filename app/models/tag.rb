@@ -1,4 +1,3 @@
 class Tag < ActiveRecord::Base
-  belongs_to :elements
-  belongs_to :feeds
+  belongs_to :taggable, polymorphic: true
 end

@@ -2,8 +2,10 @@
 
 <div class="tab-pane active" id="#upload">
   <div class="container">
+    <!-- Default panel contents -->
     <h4><span class="glyphicon glyphicon-upload"></span> Upload new samples:</h4>
-        <%= form_tag @sample, html: {action: :upload_malz}, multipart: true do %>
+      <div class="container">
+      <%= form_tag @sample, html: {action: :upload_malz}, multipart: true do %>
           <%= file_field_tag 'malz' %>
         <h5>Compressed?</h5>
         <div class="row">
@@ -19,5 +21,7 @@
           </div>
           <%= submit_tag("Upload", class: "btn btn-primary")%>
     <% end %>
+        </div>
     </div>
   </div>
+</div>
