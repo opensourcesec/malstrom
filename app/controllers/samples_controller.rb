@@ -17,7 +17,6 @@ require 'analyzer'
     respond_to do |format|
       format.js
     end
-
   end
 
   def upload
@@ -42,10 +41,8 @@ require 'analyzer'
     if @sample.save
       redirect_to samples_list_path, :notice => "Sample has been uploaded successfully!"
     end
-
-    #analyze = Analysis.new
-    #analyze.hashes(@sample.malz.path, @sample.malz_file_name)
-
+    analyze = Analysis.new
+    analyze.hashes(@sample.malz.path, @sample.malz_file_name)
   end
 
   # params for sample uploads
@@ -53,10 +50,16 @@ require 'analyzer'
     params.require(:sample).permit(:filename, :malz, :hash)
   end
 
+def sample_analysis
+  analyze = Analysis.new
+  sample = Sample.find_by_malz_file_name(params[:analyze])
+  analyze.hashes(File.open(sample.malz.path), sample.malz_file_name)
+end
+
   # add yara signatures
   def add_rule
     new_rule_content = params[:rule_body]
-    patt = 'rule.+\{'
+    patt = 'rule.*\{'
     syntax_check = /#{patt}/.match(new_rule_content)
     if syntax_check.nil?
       redirect_to samples_list_path, :alert => "Error: Improper rule syntax: '#{syntax_check}'"
