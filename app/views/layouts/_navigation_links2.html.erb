@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <li><%= link_to '', edit_user_registration_path, :class => 'navbar-brand glyphicon glyphicon-user glyphicon-white' %></li>
+    <li><%= link_to '', edit_user_registration_path, :class => 'navbar-brand glyphicon glyphicon-cog glyphicon-white' %></li>
     <li><%= button_to 'Logout', destroy_user_session_path, :method=>'delete', :class => 'btn btn-default navbar-btn' %></li>
 <% else %>
 <% end %>

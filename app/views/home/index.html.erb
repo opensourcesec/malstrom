@@ -1,29 +1,49 @@
 <div>
     <div class="page-header">
       <p class="center"><%= image_tag("Cysector.png", :size => "360x80", :crop => :fill) %></p>
-      <h1 align="center">{ Intelligence Center }</h1>
+      <h1 align="center">{ Malware Intelligence }</h1>
     </div>
   <% if user_signed_in? %>
-      <div class="container" style="float:">
+      <div class="col-xs-6" style="float: left:">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h1 class="panel-title">Total Malware Samples</h1>
-          </div>
-          <div class="panel-body"><%= Sample.count(:all)%></div>
-        </div>
+            <h4>Malware</h4>
+            <div class="panel panel-info">
+            <div class="panel-heading">
+                <h1 class="panel-title">Total Malware Samples</h1>
+            </div>
+            <div class="panel-body"><%= Sample.count(:all)%></div>
+            </div>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h1 class="panel-title">Total Indicators</h1>
-          </div>
-          <div class="panel-body"><%= Element.count(:all)%></div>
+            <div class="panel panel-info">
+            <div class="panel-heading">
+                <h1 class="panel-title">Yara Signatures</h1>
+            </div>
+            <div class="panel-body"><%= Element.count(:all)%></div>
+            </div>
         </div>
+        </div>
+      </div>
 
+
+      <div class="col-xs-6" style="float: right:">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h1 class="panel-title">Total Feeds</h1>
+            <h4>Threat Intelligence</h4>
+            <div class="panel panel-info">
+            <div class="panel-heading">
+                <h1 class="panel-title">Threat Tags</h1>
+            </div>
+            <div class="panel-body"><%= Sample.count(:all)%></div>
+            </div>
+
+            <div class="panel panel-info">
+            <div class="panel-heading">
+                <h1 class="panel-title">Indicators</h1>
+            </div>
+            <div class="panel-body"><%= Element.count(:all)%></div>
+            </div>
           </div>
-          <div class="panel-body"><%= Feeds.count(:all)%></div>
         </div>
       </div>
 

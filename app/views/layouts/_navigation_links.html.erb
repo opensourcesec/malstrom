@@ -1,6 +1,6 @@
 <%# add navigation links to this file %>
 <% if user_signed_in? %>
-    <li><%= link_to 'Samples', samples_list_path, :id => "#samplelist", :class => "Samples" %></li>
+    <li><%= link_to 'Malware', samples_list_path, :id => "#samplelist", :class => "Samples" %></li>
     <li><%= link_to 'IOC', search_indicators_path %></li>
     <li><%= link_to 'Feeds', feeds_list_path %></li>
 <% else %>

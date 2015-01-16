@@ -2,17 +2,15 @@ require 'hex_string'
 require 'digest'
 require 'metasm'
 require 'exifr'
-require 'json'
-require 'rest-client'
 
 class Analysis
 
 ######################### Hashing Module ########################
 
   def hashes(sample, file)
-    sha256hash = Digest::SHA256.file(file).hexdigest
-    sha1hash = Digest::SHA1.file(file).hexdigest
-    md5hash = Digest::MD5.file(file).hexdigest
+    sha256hash = Digest::SHA256.file(sample).hexdigest
+    #sha1hash = Digest::SHA1.file(file).hexdigest
+    #md5hash = Digest::MD5.file(file).hexdigest
     samp = Sample.find_by_malz_filename(sample)
     samp.SHA256 = sha256hash
   end
