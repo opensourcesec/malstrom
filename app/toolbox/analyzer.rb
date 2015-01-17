@@ -9,10 +9,10 @@ class Analysis
 
   def hashes(sample, file)
     sha256hash = Digest::SHA256.file(sample).hexdigest
-    #sha1hash = Digest::SHA1.file(file).hexdigest
-    #md5hash = Digest::MD5.file(file).hexdigest
-    samp = Sample.find_by_malz_filename(sample)
-    samp.SHA256 = sha256hash
+    #sha1hash = Digest::SHA1.file(sample).hexdigest
+    #md5hash = Digest::MD5.file(sample).hexdigest
+    samp = Sample.find_by_malz_file_name(File.basename(sample))
+    samp.sha256 = sha256hash
   end
 
 

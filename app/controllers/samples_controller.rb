@@ -38,11 +38,13 @@ require 'analyzer'
       end
     end
     @sample.malz = params[:malz]
+
     if @sample.save
       redirect_to samples_list_path, :notice => "Sample has been uploaded successfully!"
     end
     analyze = Analysis.new
-    analyze.hashes(@sample.malz.path, @sample.malz_file_name)
+    thr = Thread.new { analyze.hashes(@sample.malz.path, @sample.malz_file_name) }
+    thr.join
   end
 
   # params for sample uploads
