@@ -1,5 +1,20 @@
 <% if user_signed_in? %>
-    <li><%= link_to '', edit_user_registration_path, :class => 'navbar-brand glyphicon glyphicon-cog glyphicon-white' %></li>
+    <script>
+        $('dropdown-toggle').dropdown()
+    </script>
+    <li class="dropdown">
+      <a href="#" data-toggle="dropdown" class="dropdown-toggle">Info <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Help</a></li>
+        <li><a href="#">Docs</a></li>
+        <li class="divider"></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </li>
+    <script>
+        $('#element').tooltip('show')
+    </script>
+    <li><%= link_to '', edit_user_registration_path, :class => 'navbar-brand glyphicon glyphicon-cog', :data => {:toggle=>"tooltip"}, :title => "Edit Account" %></li>
     <li><%= button_to 'Logout', destroy_user_session_path, :method=>'delete', :class => 'btn btn-default navbar-btn' %></li>
 <% else %>
 <% end %>
