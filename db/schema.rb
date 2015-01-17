@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20150107225853) do
 
   create_table "samples", force: true do |t|
     t.string   "filename"
-    t.string   "SHA256"
+    t.string   "sha256"
     t.string   "content_type"
     t.text     "description"
     t.datetime "created_at"

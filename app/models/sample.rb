@@ -5,8 +5,7 @@ class Sample < ActiveRecord::Base
                     :path => ":rails_root/app/assets/malware/:basename.:extension"
 
   validates_attachment :malz,
-                       :content_type => { :content_type => ["image/jpeg", "image/gif", "image/png", "application/pdf",
-                                                            "application/zip", "application/gzip", "application/octet-stream", ] }
+                       :content_type => { :content_type => /^.*/ }
   validates_attachment_size :malz, :less_than => 10.megabytes
 
   def samples

@@ -3,14 +3,16 @@
       <p class="center"><%= image_tag("Malstrom.png", :size => "360x80", :crop => :fill) %></p>
       <h2 align="center">{ Malware Intelligence }</h2>
     </div>
+
   <% if user_signed_in? %>
+
       <div class="col-xs-6" style="float: left:">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4>Malware</h4>
             <div class="panel panel-info">
             <div class="panel-heading">
-                <h1 class="panel-title">Total Malware Samples</h1>
+                <h1 class="panel-title">Samples</h1>
             </div>
             <div class="panel-body"><%= Sample.count(:all)%></div>
             </div>
@@ -19,9 +21,10 @@
             <div class="panel-heading">
                 <h1 class="panel-title">Yara Signatures</h1>
             </div>
-            <div class="panel-body"><%= Element.count(:all)%></div>
+              <% @files = Dir['app/assets/yara/*.yar']%>
+            <div class="panel-body"><%= @files.length %></div>
             </div>
-        </div>
+          </div>
         </div>
       </div>
 
@@ -34,7 +37,7 @@
             <div class="panel-heading">
                 <h1 class="panel-title">Threat Tags</h1>
             </div>
-            <div class="panel-body"><%= Sample.count(:all)%></div>
+            <div class="panel-body"><%= Tag.count(:all)%></div>
             </div>
 
             <div class="panel panel-info">

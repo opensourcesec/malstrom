@@ -3,7 +3,7 @@
 <div class="tab-pane active" id="#signatures">
     <div class="container">
     <h5>Add new yara signature <%= link_to '', samples_new_yara_path, :class => 'glyphicon glyphicon-plus btn btn-success' %></h5>
-    <h5>Scan samples with entire rule set <%= link_to '', samples_list_path, :class => 'glyphicon glyphicon-refresh btn btn-info' %></h5>
+    <h5>Scan samples with available rules <%= link_to '', samples_list_path, :class => 'glyphicon glyphicon-refresh btn btn-info' %></h5>
       </div>
   <% @rules = Dir["app/assets/yara/*.yar"] %>
   <div class="container">
