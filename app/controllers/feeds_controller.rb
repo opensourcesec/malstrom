@@ -28,7 +28,10 @@ class FeedsController < ApplicationController
 
   def run_feed
     @update = Updater.new
-    @update.retrieval(params[:url], params[:name])
+    # New thread for feed update
+    thr = Thread.new { @update.retrieval(params[:url], params[:name]) }
+    thr.join
+    # Redirect upon thread initiation
     if @update
       redirect_to :feeds_list, :notice => "Feed updated successfully!"
     else
