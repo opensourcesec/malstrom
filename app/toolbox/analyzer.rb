@@ -2,6 +2,7 @@ require 'hex_string'
 require 'digest'
 require 'metasm'
 require 'exifr'
+require_relative 'virustotal'
 
 class Analysis
 
@@ -13,6 +14,10 @@ class Analysis
     #md5hash = Digest::MD5.file(sample).hexdigest
     samp = Sample.find_by_malz_file_name(file)
     samp.sha256 = sha256hash
+
+    vt = VirusTotal.new
+    detect = vt.vtquery(sha256hash)
+    samp.detection = detect
     samp.save
   end
 
