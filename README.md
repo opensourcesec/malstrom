@@ -12,10 +12,10 @@ Installation
 ```	
   
 * In the database.yml file, copy and paste this data to setup a db schema:
-```production:
-    adapter: sqlite3
-    database: db/production.sqlite3
-    pool: 5
+```production:\n
+    adapter: sqlite3\n
+    database: db/production.sqlite3\n
+    pool: 5\n
     timeout: 5000
 ``` 
 * Type Ctrl-X and hit return to save
