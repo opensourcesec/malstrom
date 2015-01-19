@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150119173526) do
     t.string   "malz_content_type"
     t.integer  "malz_file_size"
     t.datetime "malz_updated_at"
+    t.text     "detection"
   end
 
   create_table "tags", force: true do |t|

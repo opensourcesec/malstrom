@@ -41,6 +41,7 @@ require 'analyzer'
 
     if @sample.save
       redirect_to samples_list_path, :notice => "Sample has been uploaded successfully!"
+      sleep(1)
       analyze = Analysis.new
       thr = Thread.new { analyze.hashes(@sample.malz.path, @sample.malz_file_name) }
       thr.join
@@ -52,10 +53,14 @@ require 'analyzer'
     params.require(:sample).permit(:filename, :malz, :hash)
   end
 
-def sample_analysis
-  analyze = Analysis.new
-  sample = Sample.find_by_malz_file_name(params[:analyze])
-  analyze.hashes(File.open(sample.malz.path), sample.malz_file_name)
+def delete_sample
+  samps = Sample.find_by_id(params[:sample_id]).delete
+  if samps
+    redirect_to :samples_list_path, :notice => "Sample deleted successfully!"
+  else
+    flash.now[:alert] = "Error: Cannot delete sample"
+    render :samples_list_path
+  end
 end
 
   # add yara signatures
@@ -64,7 +69,7 @@ end
     patt = 'rule.*\{'
     syntax_check = /#{patt}/.match(new_rule_content)
     if syntax_check.nil?
-      redirect_to samples_list_path, :alert => "Error: Improper rule syntax: '#{syntax_check}'"
+      redirect_to samples_list_path, :alert => "Error: Syntax - 'rule <rulename> {' not found!"
       return
     end
     rule_name = params[:rule_name]

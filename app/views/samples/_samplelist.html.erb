@@ -18,11 +18,12 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Filename</th>
-                    <th>SHA256</th>
-                    <th>Type</th>
-                    <th>Size</th>
-                    <th>Remove</th>
+                  <th>Filename</th>
+                  <th>SHA256</th>
+                  <th>Type</th>
+                  <th>Size</th>
+                  <th>Detected</th>
+                  <th>Remove</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +32,11 @@
                 <td><%= mal.sha256 %></td>
                 <td><%= mal.malz_content_type %></td>
                 <td><%= mal.malz_file_size %></td>
+                <% if mal.detection == 'N/A' %>
+                    <td><%= mal.detection %></td>
+                <% else %>
+                    <td><%= link_to mal.detection, "http://virustotal.com/en/file/#{mal.sha256}/analysis", :target => "_blank" %></td>
+                <% end %>
                 <td></td>
             </tbody>
             <% end %>

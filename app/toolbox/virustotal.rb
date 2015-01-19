@@ -5,7 +5,7 @@ require 'rest-client'
 
 class VirusTotal
   def vtquery(hash)
-    apikey = File.open('app/assets/api.key')
+    apikey = File.open('app/assets/api.key', 'rb').read
 
     begin
       vtrequest = RestClient.post "https://www.virustotal.com/vtapi/v2/file/report", :resource => "#{hash}", :apikey => "#{apikey}"
