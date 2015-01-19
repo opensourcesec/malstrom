@@ -37,17 +37,17 @@
                 <% else %>
                     <td><%= link_to mal.detection, "http://virustotal.com/en/file/#{mal.sha256}/analysis", :target => "_blank" %></td>
                 <% end %>
-                <td></td>
+                <td><%= link_to '', samples_delete_sample_path(:sample_id => mal.id), class: 'glyphicon glyphicon-trash btn btn-danger' %></td>
             </tbody>
             <% end %>
         </table>
-       <nav>
+       <!--<nav>
          <ul class="pagination">
            <li class="disabled"><a href="#">&laquo;</a></li>
            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
            <li><a href="#">2<span></span></a></li>
            <li><a href="#">3<span></span></a></li>
          </ul>
-       </nav>
+       </nav>-->
    </div>
 </div>

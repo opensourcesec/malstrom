@@ -53,13 +53,14 @@ require 'analyzer'
     params.require(:sample).permit(:filename, :malz, :hash)
   end
 
-def delete_sample
-  samps = Sample.find_by_id(params[:sample_id]).delete
+def delete_malz
+  samps = Sample.find_by_id(params[:sample_id])
+  samps.malz.destroy
+  samps.delete
   if samps
     redirect_to :samples_list_path, :notice => "Sample deleted successfully!"
   else
-    flash.now[:alert] = "Error: Cannot delete sample"
-    render :samples_list_path
+    redirect_to :samples_list_path, :alert => "Error: Cannot delete sample"
   end
 end
 
