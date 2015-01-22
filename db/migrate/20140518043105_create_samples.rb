@@ -3,8 +3,8 @@ class CreateSamples < ActiveRecord::Migration
     create_table :samples do |t|
       t.string :filename
       t.string :sha256
-      t.string :content_type
-      t.text :description
+      t.string :sha1sum
+      t.string :md5sum
 
       t.timestamps
     end
