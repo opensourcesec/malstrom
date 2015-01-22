@@ -21,6 +21,7 @@ gem 'metasm'
 gem 'exifr'
 gem 'json'
 gem 'rest-client'
+gem 'pedump'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21, :rbx]

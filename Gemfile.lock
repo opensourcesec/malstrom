@@ -38,6 +38,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.0)
+    awesome_print (1.6.1)
     bcrypt (3.1.7)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -73,6 +74,7 @@ GEM
     hex_string (1.0.1)
     hike (1.2.3)
     i18n (0.6.9)
+    iostruct (0.0.4)
     jbuilder (2.0.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -87,9 +89,17 @@ GEM
     mime-types (1.25.1)
     minitest (5.3.2)
     multi_json (1.9.2)
+    multipart-post (1.1.5)
     netrc (0.10.2)
     orm_adapter (0.5.0)
+    pedump (0.5.0)
+      awesome_print
+      iostruct (>= 0.0.4)
+      multipart-post (~> 1.1.4)
+      progressbar
+      zhexdump (>= 0.0.2)
     polyglot (0.3.4)
+    progressbar (0.21.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -155,6 +165,7 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    zhexdump (0.0.2)
     zip (2.0.2)
 
 PLATFORMS
@@ -174,6 +185,7 @@ DEPENDENCIES
   json
   metasm
   paperclip!
+  pedump
   quiet_assets
   rails (= 4.1.0.rc2)
   rails_layout
