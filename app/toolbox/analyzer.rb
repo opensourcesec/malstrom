@@ -10,10 +10,12 @@ class Analysis
 
   def hashes(sample, file)
     sha256hash = Digest::SHA256.file(sample).hexdigest
-    #sha1hash = Digest::SHA1.file(sample).hexdigest
-    #md5hash = Digest::MD5.file(sample).hexdigest
+    sha1hash = Digest::SHA1.file(sample).hexdigest
+    md5hash = Digest::MD5.file(sample).hexdigest
     samp = Sample.find_by_malz_file_name(file)
     samp.sha256 = sha256hash
+    samp.sha1sum = sha1hash
+    samp.md5sum = md5hash
 
     vt = VirusTotal.new
     detect = vt.vtquery(sha256hash)

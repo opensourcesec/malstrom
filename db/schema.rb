@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20150119173526) do
   create_table "samples", force: true do |t|
     t.string   "filename"
     t.string   "sha256"
-    t.string   "content_type"
-    t.text     "description"
+    t.string   "sha1sum"
+    t.string   "md5sum"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "malz_file_name"

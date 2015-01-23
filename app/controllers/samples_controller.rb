@@ -27,7 +27,7 @@ require 'analyzer'
   end
   ## End of JS for partials ##
 
-  # malware upload functions
+  # malware upload function
   def upload_malz
     @sample = Sample.new( params[:sample] )
     if params[:box]
@@ -53,16 +53,17 @@ require 'analyzer'
     params.require(:sample).permit(:filename, :malz, :hash)
   end
 
-def delete_malz
-  samps = Sample.find_by_id(params[:sample_id])
-  samps.malz.destroy
-  samps.delete
-  if samps
-    redirect_to :samples_list_path, :notice => "Sample deleted successfully!"
-  else
-    redirect_to :samples_list_path, :alert => "Error: Cannot delete sample"
+  # malware removal function
+  def delete_malz
+    samps = Sample.find_by_id(params[:sample_id])
+    samps.malz.destroy
+    samps.delete
+    if samps
+      redirect_to :samples_list_path, :notice => "Sample deleted successfully!"
+    else
+      redirect_to :samples_list_path, :alert => "Error: Cannot delete sample"
+    end
   end
-end
 
   # add yara signatures
   def add_rule
@@ -81,5 +82,10 @@ end
     rescue
       redirect_to samples_list_path, :alert => "Error: Could not create rule"
     end
+  end
+
+  # delete yara rule
+  def remove_rule
+    # delete rule here function here
   end
 end
