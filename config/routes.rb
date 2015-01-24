@@ -28,7 +28,7 @@ MSSD::Application.routes.draw do
 
   get "samples/list/_yara" => 'samples#yara', :as => :samples_yara
   resources :yara, :controller => "samples"
-  
+
   get "samples/list/_upload" => 'samples#upload', :as => :samples_upload
   resources :upload, :controller => "samples"
 
