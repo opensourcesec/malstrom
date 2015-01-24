@@ -9,22 +9,16 @@
   </h4>
 </head>
 <body>
-  <!--<div class="progress">
-      <%# image_tag("loader.gif", :size => "65x35", :style => "float :left",:crop => :fill) %>
-    </div>
-    <script>$(document).ajaxStart(function(){
-        $('.progress').show();
-        })
-    </script>-->
+
 <div>
 <table class="table table-striped">
   <thead>
   <tr>
     <th>Name</th>
     <th>URL</th>
-    <th>Tags</th>
     <th>Run Now</th>
     <th>Remove</th>
+    <th>Tags</th>
   </tr>
   </thead>
   <tbody>
@@ -32,9 +26,11 @@
       <tr>
         <td><%= feed.name %></td>
         <td><%= feed.url %></td>
-        <td><%= feed.tag_list %></td>
         <td><%= link_to '', feeds_run_feed_path(:url => feed.url, :name => feed.name, :tags => feed.tag_list), class: 'glyphicon glyphicon-retweet btn btn-primary' %></td>
         <td><%= link_to '', feeds_delete_feed_path(:name => feed.name), class: 'glyphicon glyphicon-trash btn btn-danger' %></td>
+        <% feed.tag_list.each do |tag| %>
+            <td><%= link_to tag, '#', :class => 'label label-info' %></td>
+        <% end %>
       </tr>
   <% end %>
   </tbody>

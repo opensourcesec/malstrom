@@ -7,7 +7,7 @@
       <div class="container">
       <%= form_tag @sample, html: {action: :upload_malz}, multipart: true do %>
           <%= file_field_tag 'malz' %>
-        <h5>Compressed?</h5>
+        <h5><span class="glyphicon glyphicon-compressed"></span> Compressed?</h5>
         <div class="row">
           <div class="col-lg-6">
             <div class="input-group">
