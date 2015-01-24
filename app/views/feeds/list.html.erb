@@ -22,6 +22,7 @@
   <tr>
     <th>Name</th>
     <th>URL</th>
+    <th>Tags</th>
     <th>Run Now</th>
     <th>Remove</th>
   </tr>
@@ -31,7 +32,8 @@
       <tr>
         <td><%= feed.name %></td>
         <td><%= feed.url %></td>
-        <td><%= link_to '', feeds_run_feed_path(:url => feed.url, :name => feed.name), class: 'glyphicon glyphicon-retweet btn btn-primary' %></td>
+        <td><%= feed.tag_list %></td>
+        <td><%= link_to '', feeds_run_feed_path(:url => feed.url, :name => feed.name, :tags => feed.tag_list), class: 'glyphicon glyphicon-retweet btn btn-primary' %></td>
         <td><%= link_to '', feeds_delete_feed_path(:name => feed.name), class: 'glyphicon glyphicon-trash btn btn-danger' %></td>
       </tr>
   <% end %>

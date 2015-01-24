@@ -9,7 +9,7 @@ class FeedsController < ApplicationController
   end
 
   def feed_params
-    params.require(:feeds).permit(:name, :url)
+    params.require(:feeds).permit(:name, :url, :tag_list)
   end
 
   def new_feed
@@ -29,7 +29,7 @@ class FeedsController < ApplicationController
   def run_feed
     @update = Updater.new
     # New thread for feed update
-    thr = Thread.new { @update.retrieval(params[:url], params[:name]) }
+    thr = Thread.new { @update.retrieval(params[:url], params[:name], params[:tags]) }
     thr.join
     # Redirect upon thread initiation
     if @update
