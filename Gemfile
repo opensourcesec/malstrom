@@ -17,12 +17,13 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'zip'
 gem 'hex_string'
 gem 'digest'
-gem 'metasm'
 gem 'exifr'
 gem 'json'
 gem 'rest-client'
 gem 'pedump'
 gem 'acts-as-taggable-on'
+gem 'yara'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21, :rbx]

@@ -48,7 +48,14 @@ require 'analyzer'
     end
   end
 
-  # params for sample uploads
+  # sample analysis function
+  def analysis
+    scan = Analysis.new
+    
+  end
+
+
+  # parameterss for sample uploads
   def sample_params
     params.require(:sample).permit(:filename, :malz, :hash)
   end
