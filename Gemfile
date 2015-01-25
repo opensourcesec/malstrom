@@ -22,7 +22,7 @@ gem 'json'
 gem 'rest-client'
 gem 'pedump'
 gem 'acts-as-taggable-on'
-gem 'yara'
+#gem 'yara'
 
 group :development do
   gem 'better_errors'
