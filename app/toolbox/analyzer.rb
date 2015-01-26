@@ -1,6 +1,6 @@
 require 'hex_string'
 require 'digest'
-require 'metasm'
+require 'pedump'
 require 'exifr'
 require_relative 'virustotal'
 
@@ -21,6 +21,8 @@ class Analysis
     detect = vt.vtquery(sha256hash)
     samp.detection = detect
     samp.save
+
+
   end
 
 
@@ -29,6 +31,13 @@ class Analysis
 
   def scan_pe(sample)
     ## Analyzes PE Files
+
+    pe = PEdump.new
+    mz_head = pe.mz(sample)
+    dos_head = pe.dos_stub(sample)
+    iat = pe.imports(sample)
+    eat = pe.exports(sample)
+    res = pe.resources(sample)
 
     ## Set Image File Header values ##
     win32 = "014c"
@@ -57,13 +66,8 @@ class Analysis
       build = "i386 (32-bit x86)"
     end
 
-    File.open("reports/#{@sample_name}.txt", "a") do |f1|  f1.write("\n[*] File Architecture: #{build}") end
 
-    ## Outputs strings from sample to a file
-    strings(sample)
 
-    ## Searches Virustotal for sample
-    VTotal::vtquery(sample, hash)
   end
 
 
