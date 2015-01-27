@@ -1,1 +1,26 @@
-<h5></h5>
+<h3>File: <%= @sample.malz_file_name %></h3>
+
+ <div class="col-xs-6" style="float">
+  <div class="panel panel-info">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Details</div>
+    <!-- List group -->
+    <ul class="list-group">
+      <li class="list-group-item">Type: <%= @type %></li>
+      <li class="list-group-item">Size: <%= @sample.malz_file_size %></li>
+      <li class="list-group-item">MD5: <%= @sample.md5sum %></li>
+      <li class="list-group-item">SHA1: <%= @sample.sha1sum %></li>
+      <li class="list-group-item">SHA256: <%= @sample.sha256 %></li>
+    </ul>
+  </div>
+ </div>
+
+  <div class="col-xs-2" style="float">
+    <div class="panel panel-danger">
+      <div class="panel-body">
+        <h5>
+          Virustotal Detection:  <%= link_to @sample.detection, "http://virustotal.com/en/file/#{@sample.sha256}/analysis", :target => "_blank", :class => "label label-danger" %>
+        </h5>
+      </div>
+    </div>
+  </div>

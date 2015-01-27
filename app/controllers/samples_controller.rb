@@ -3,6 +3,7 @@ class SamplesController < ApplicationController
 require 'digest'
 require 'zip'
 require 'analyzer'
+require 'hex_string'
 
   ## Required javascript to render partials ##
   def samplelist
@@ -51,7 +52,30 @@ require 'analyzer'
   # sample analysis function
   def analysis
     scan = Analysis.new
-    
+    @sample = Sample.find_by_md5sum(params[:md5])
+    contents = File.open(@sample.malz.path, 'rb')
+    content = contents.read
+    hex = content.to_hex_string
+    magic = hex[0,5]
+    if magic == "4d 5a"
+      @type = "PE"
+      @scan_results = scan.scan_pe(contents, hex)
+    elsif magic == "ff d8"
+      @type = "JPG"
+      @page = scan.scan_jpg(content)
+    elsif magic == "7f 45"
+      @type = "ELF"
+      @page = scan.scan_elf(content)
+    elsif magic == "23 21"
+      @type = "Script"
+      @page = scan.scan_script(content)
+    elsif magic == "25 50"
+      @type = "PDF"
+      @page = "default"
+    else
+      @type = "unknown!"
+      @page = "default"
+    end
   end
 
 
@@ -65,11 +89,7 @@ require 'analyzer'
     samps = Sample.find_by_id(params[:sample_id])
     samps.malz.destroy
     samps.delete
-    if samps
-      redirect_to :samples_list_path, :notice => "Sample deleted successfully!"
-    else
-      redirect_to :samples_list_path, :alert => "Error: Cannot delete sample"
-    end
+    redirect_to :samples_list_path, :notice => "Sample deleted successfully!"
   end
 
   # add yara signatures

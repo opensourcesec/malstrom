@@ -2,6 +2,7 @@ require 'hex_string'
 require 'digest'
 require 'pedump'
 require 'exifr'
+require 'metasm'
 require_relative 'virustotal'
 
 class Analysis
@@ -21,33 +22,32 @@ class Analysis
     detect = vt.vtquery(sha256hash)
     samp.detection = detect
     samp.save
-
-
   end
 
 
 ######################### PE Module ########################
 
 
-  def scan_pe(sample)
+  def scan_pe(sample, hex)
     ## Analyzes PE Files
 
     pe = PEdump.new
-    mz_head = pe.mz(sample)
-    dos_head = pe.dos_stub(sample)
+    #mz = pe.mz(sample)
+    #dosstub = pe.dos_stub(sample)
     iat = pe.imports(sample)
     eat = pe.exports(sample)
     res = pe.resources(sample)
 
+
     ## Set Image File Header values ##
-    win32 = "014c"
-    itanium64 = "0200"
-    winamd64 = "8664"
+    #win32 = "014c"
+    #itanium64 = "0200"
+    #winamd64 = "8664"
 
     ## Identify File Header relative to start of PE header ##
-    offset = @hex.index "50 45 00 00"
+    offset = hex.index "50 45 00 00"
     offset = offset + 12
-    a = @hex[offset, 5]
+    a = hex[offset, 5]
 
     test32 = a.index('4c 01')
     testia64 = a.index('00 02')
@@ -66,8 +66,13 @@ class Analysis
       build = "i386 (32-bit x86)"
     end
 
-
-
+    results = "
+              Build: #{build}\n\
+              Imports: #{iat}\n\
+              Exports: #{eat}\n\
+              Resources: #{res}"
+    
+    return results
   end
 
 
@@ -76,24 +81,9 @@ class Analysis
 
   def scan_jpg(sample)
     ## Analyzes JPG files
-
-    img = EXIFR::JPEG.new(sample)
-
-    puts "\nTime the image was captured: ".yellow
-    if img.date_time != nil
-      puts "#{img.date_time}".yellow
-    else
-      puts '[!] No Timestamp available'.red
-    end
-
-    meta = img.exif_data
-    puts "\nExif data: ".yellow
-    if img.exif? == 'True'
-      puts "#{meta}".yellow
-    else
-      puts '[!] No Exif data available'.red
-    end
-    vt_query(sample, hash)
+    #img = EXIFR::JPEG.new
+    #meta = img.inspect
+    #puts meta
   end
 
 ######################### ELF Module ########################
@@ -106,9 +96,6 @@ class Analysis
 
     ## Output strings to file
     strings(sample)
-
-    ## Query VT for sample
-    VTotal::vtquery(sample, hash)
   end
 
 
@@ -120,9 +107,6 @@ class Analysis
 
     sample = File.open(file, 'r')
     contents = sample.readlines.first.chomp
-    print "\n[*] Interpreter: ".yellow
-    puts contents
-    VTotal::vtquery(file, hash)
   end
 
 
@@ -134,11 +118,5 @@ class Analysis
 
     strings = `strings #{sample}`
 
-    begin
-      File.open("reports/#{@sample_name}.txt", "a") do |f1| f1.write("\n[*] Output strings to strings/#{sample}_strings.txt\n") end
-    rescue
-      print "[-]".red
-      puts " Could not output strings to file."
-    end
   end
 end

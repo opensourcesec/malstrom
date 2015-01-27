@@ -37,6 +37,8 @@ MSSD::Application.routes.draw do
   get 'samples/delete_sample' => "samples#delete_malz"
   resources :delete_malz, :controller => "samples"
 
+  get "samples/analysis" => "samples#analysis"
+
   get "samples/new_yara" => "samples#new_yara"
 
   post "samples/save_sig" => "samples#process_sig"
