@@ -2,6 +2,10 @@ MSSD::Application.routes.draw do
 
   get 'samples/list'
 
+  get 'threats/tags'
+
+  get 'threats/profile'
+
   get 'feeds/list'
 
   get 'feeds/new_feed'

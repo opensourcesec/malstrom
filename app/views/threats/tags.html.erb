@@ -1,0 +1,28 @@
+<h2>Threat Tags</h2>
+<div class="col-sm-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title">IOC</h5>
+    </div>
+
+    <div class="panel-body">
+      <% tag_cloud( Element.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
+          <%= link_to tag, threats_profile_path(:tag => tag), :class => "label label-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title">Malware</h5>
+    </div>
+
+    <div class="panel-body">
+      <% tag_cloud( Sample.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
+          <%= link_to tag, threats_profile_path(:tag => tag), :class => "label label-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

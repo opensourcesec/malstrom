@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h1>Tags: <small><%= @tag_name %></small></h1>
+</div>
+<div>
+  <h4>Count <span class="badge badge-warning"><%= @tagged %></span></h4>
+</div>
+
+<div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Item</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% @tag_matches.each do |item| %>
+            <tr>
+              <td><%= item %></td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

@@ -29,7 +29,7 @@
         <td><%= link_to '', feeds_run_feed_path(:url => feed.url, :name => feed.name, :tags => feed.tag_list), class: 'glyphicon glyphicon-retweet btn btn-primary' %></td>
         <td><%= link_to '', feeds_delete_feed_path(:name => feed.name), class: 'glyphicon glyphicon-trash btn btn-danger' %></td>
         <% feed.tag_list.each do |tag| %>
-            <td><%= link_to tag, '#', :class => 'label label-info' %></td>
+            <td><%= link_to tag, threats_profile_path(:tag => tag), :class => 'label label-large label-info' %></td>
         <% end %>
       </tr>
   <% end %>
