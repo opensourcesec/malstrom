@@ -89,7 +89,7 @@ require 'hex_string'
     samps = Sample.find_by_id(params[:sample_id])
     samps.malz.destroy
     samps.delete
-    redirect_to :samples_list_path, :notice => "Sample deleted successfully!"
+    redirect_to samples_list_path, :notice => "Sample deleted successfully!"
   end
 
   # add yara signatures
@@ -98,21 +98,29 @@ require 'hex_string'
     patt = 'rule.*\{'
     syntax_check = /#{patt}/.match(new_rule_content)
     if syntax_check.nil?
-      redirect_to samples_list_path, :alert => "Error: Syntax - 'rule <rulename> {' not found!"
+      redirect_to samples_list_path, :alert => "Syntax - 'rule <rulename> {' not found!"
       return
     end
     rule_name = params[:rule_name]
     new_rule_path = "app/assets/yara/#{rule_name}.yar"
     begin
       File.write(new_rule_path, new_rule_content)
-      redirect_to samples_list_path, :notice => "New signature has been uploaded successfully!"
+      redirect_to samples_list_path, :notice => "Signature has been uploaded successfully!"
     rescue
-      redirect_to samples_list_path, :alert => "Error: Could not create rule"
+      redirect_to samples_list_path, :alert => "Could not create rule"
     end
   end
 
   # delete yara rule
   def remove_rule
     # delete rule here function here
+    rule_name = params[:rule_name]
+    rule_path = "app/assets/yara/#{rule_name}"
+    begin
+      File.delete(rule_path)
+      redirect_to samples_list_path, :notice => "Signature has been deleted successfully!"
+    rescue
+      redirect_to samples_list_path, :alert => "Could not delete rule"
+    end
   end
 end

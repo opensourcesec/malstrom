@@ -66,13 +66,7 @@ class Analysis
       build = "i386 (32-bit x86)"
     end
 
-    results = "
-              Build: #{build}\n\
-              Imports: #{iat}\n\
-              Exports: #{eat}\n\
-              Resources: #{res}"
-    
-    return results
+    puts "Build: #{build}\nImports: #{iat}\nExports: #{eat}\nResources: #{res}"
   end
 
 

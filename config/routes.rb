@@ -39,6 +39,8 @@ MSSD::Application.routes.draw do
 
   get "samples/analysis" => "samples#analysis"
 
+  get "samples/remove_rule" => "samples#remove_rule"
+  
   get "samples/new_yara" => "samples#new_yara"
 
   post "samples/save_sig" => "samples#process_sig"
