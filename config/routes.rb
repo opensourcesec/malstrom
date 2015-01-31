@@ -51,9 +51,14 @@ MSSD::Application.routes.draw do
 
   post "samples/addrule" => "samples#add_rule"
 
+  #if Rails.env.production?
+  devise_for :users, :controllers => { :registrations => "registrations" } 
+  #else
+  #  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
+  #  resources :users
+  #end
+
   root :to => "home#index"
-  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
-  resources :users
   namespace :admin do
     get '/' => 'users#index'
     resources :users
