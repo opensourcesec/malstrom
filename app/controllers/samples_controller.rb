@@ -39,6 +39,7 @@ require 'hex_string'
       end
     end
     @sample.malz = params[:malz]
+    @sample.tag_list = params[:tag_list][:malz]
     if @sample.save
       redirect_to samples_list_path, :notice => "Sample has been uploaded successfully!"
       analyze = Analysis.new
@@ -78,7 +79,7 @@ require 'hex_string'
 
   # parameterss for sample uploads
   def sample_params
-    params.require(:sample).permit(:filename, :malz, :hash)
+    params.require(:sample).permit(:filename, :malz, :hash, :tags_list)
   end
 
   # malware removal function

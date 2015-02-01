@@ -3,16 +3,31 @@ class ThreatsController < ApplicationController
   end
 
   def profile
-    @tag_matches = []
+    @ioc_matches = []
+    @mal_matches = []
     @tag_name = params[:tag]
-    set = Element.all
-    set.each do |item|
+
+    ioc_set = Element.all
+    mal_set = Sample.all
+
+    # Iterate over all IOCs
+    ioc_set.each do |item|
       item.tag_list.each do |tag|
         if tag == @tag_name
-          @tag_matches.push(item.value)
+          @ioc_matches.push(item.value)
         end
       end
     end
-    @tagged = @tag_matches.length
+
+    # Iterate over all Samples
+    mal_set.each do |item|
+      item.tag_list.each do |tag|
+        if tag == @tag_name
+          @mal_matches.push(item.md5sum)
+        end
+      end
+    end
+
+    @tagged = @ioc_matches.length + @mal_matches.length
   end
 end

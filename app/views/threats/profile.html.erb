@@ -2,22 +2,53 @@
   <h1>Tags: <small><%= @tag_name %></small></h1>
 </div>
 <div>
-  <h4>Count <span class="badge badge-info"><%= @tagged %></span></h4>
+  <h4>Found <span class="badge badge-info"><%= @tagged %></span></h4>
 </div>
 
 <div>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>Item</th>
-    </tr>
-    </thead>
-    <tbody>
-        <% @tag_matches.each do |item| %>
+
+</div>
+
+<div class="col-xs-6" style="float: left:">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Malware</h4>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>MD5</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @mal_matches.each do |item| %>
             <tr>
               <td><%= item %></td>
             </tr>
         <% end %>
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-6" style="float: left:">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>IOC</h4>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Indicator</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @ioc_matches.each do |item| %>
+            <tr>
+              <td><%= item %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
