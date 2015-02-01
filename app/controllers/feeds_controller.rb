@@ -27,11 +27,11 @@ class FeedsController < ApplicationController
   end
 
   def run_feed
-    @update = Updater.new
+    update = Updater.new
     # New job for feed update
-    Thread.new { @update.retrieval(params[:url], params[:name], params[:tags]) }
+    Thread.new { update.retrieval(params[:url], params[:name], params[:tags]) }
     # Redirect upon job initiation
-    if @update
+    if update
       redirect_to :feeds_list, :notice => "Feed update initiated!"
     else
       flash.now[:alert] = "Error: Cannot run feed at this time"
