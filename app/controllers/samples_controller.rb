@@ -39,11 +39,10 @@ require 'hex_string'
       end
     end
     @sample.malz = params[:malz]
-
     if @sample.save
       redirect_to samples_list_path, :notice => "Sample has been uploaded successfully!"
       analyze = Analysis.new
-      analyze.delay.hashes(@sample.malz.path, @sample.malz_file_name)
+      Thread.new { analyze.hashes(@sample.malz.path, @sample.malz_file_name) }
     end
   end
 
