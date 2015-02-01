@@ -28,12 +28,11 @@ class FeedsController < ApplicationController
 
   def run_feed
     @update = Updater.new
-    # New thread for feed update
-    thr = Thread.new { @update.retrieval(params[:url], params[:name], params[:tags]) }
-    thr.join
-    # Redirect upon thread initiation
+    # New job for feed update
+    @update.delay.retrieval(params[:url], params[:name], params[:tags])
+    # Redirect upon job initiation
     if @update
-      redirect_to :feeds_list, :notice => "Feed updated successfully!"
+      redirect_to :feeds_list, :notice => "Feed update initiated!"
     else
       flash.now[:alert] = "Error: Cannot run feed at this time"
       render :feeds_list_path

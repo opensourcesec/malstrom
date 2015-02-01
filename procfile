@@ -1,2 +1,2 @@
-web: bundle exec webrick -t 5:5 -p ${PORT:-8443} -e ${RACK_ENV:-development}
-
+web: bundle exec rails server -p ${PORT:-4434} -e ${RACK_ENV:-production}
+worker: rake jobs:work
