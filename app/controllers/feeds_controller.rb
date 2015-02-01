@@ -30,7 +30,7 @@ class FeedsController < ApplicationController
     @update = Updater.new
     # New job for feed update
     @update.delay.retrieval(params[:url], params[:name], params[:tags])
-    Delayed::Worker.workoff
+    Delayed::Worker.work_off
     # Redirect upon job initiation
     if @update
       redirect_to :feeds_list, :notice => "Feed update initiated!"
