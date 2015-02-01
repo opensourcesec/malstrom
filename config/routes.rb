@@ -54,8 +54,8 @@ Malstrom::Application.routes.draw do
   #if Rails.env.production?
   devise_for :users, :controllers => { :registrations => "registrations" } 
   #else
-  #  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
-  #  resources :users
+  #devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
+  #resources :users
   #end
 
   root :to => "home#index"
