@@ -18,9 +18,9 @@
         </tr>
         </thead>
         <tbody>
-            <% @rules.each do |x| %>
-            <% name = File.basename(x) %>
-            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#scrap-modal"><%= name %></button></td>
+        <% @rules.each do |x| %>
+            <tr>
+            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#scrap-modal"><%= File.basename(x) %></button></td>
             <!-- Modal -->
                 <div class="modal fade" id="scrap-modal" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -31,7 +31,7 @@
                         </div>
                         <div class="modal-body">
                             <form role="form" action="add_rule" enctype="multipart/form-data" method="post" onsubmit="window.location.reload();">
-                            <input type="text" class="form-control" name="rule_name" value="<%= name %>" />
+                            <input type="text" class="form-control" name="rule_name" value="<%= File.basename(x) %>" />
                             <textarea class="form-control" rows="10" name="rule_text" id="content"><%= File.open(x, 'rb').read %></textarea>
                             <button type="submit" class="btn btn-primary" name="new" value="New">Save</button>
                             </form>
@@ -42,9 +42,10 @@
                         </div>
                     </div>
                 </div>
-                <td><%= link_to '', samples_remove_rule_path(:rule_name => name), :class => "btn btn-danger glyphicon glyphicon-trash" %></td>
-            </tbody>
+            <td><%= link_to '', samples_remove_rule_path(:rule_name => File.basename(x)), :class => "btn btn-danger glyphicon glyphicon-trash" %></td>
+            </tr>
         <% end %>
+        </tbody>
     </table>
     </div>
   </div>
