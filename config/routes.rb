@@ -1,4 +1,4 @@
-MSSD::Application.routes.draw do
+Malstrom::Application.routes.draw do
 
   get 'samples/list'
 
