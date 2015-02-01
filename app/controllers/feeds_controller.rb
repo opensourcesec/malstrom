@@ -29,7 +29,7 @@ class FeedsController < ApplicationController
   def run_feed
     @update = Updater.new
     # New job for feed update
-    Thread.new(@update.delay.retrieval(params[:url], params[:name], params[:tags]))
+    Thread.new(@update.retrieval(params[:url], params[:name], params[:tags]))
     # Redirect upon job initiation
     if @update
       redirect_to :feeds_list, :notice => "Feed update initiated!"
