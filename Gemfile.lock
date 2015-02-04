@@ -105,6 +105,7 @@ GEM
       multipart-post (~> 1.1.4)
       progressbar
       zhexdump (>= 0.0.2)
+    pg (0.18.1)
     polyglot (0.3.4)
     progressbar (0.21.0)
     quiet_assets (1.0.2)
@@ -205,6 +206,7 @@ DEPENDENCIES
   metasm
   paperclip!
   pedump
+  pg
   quiet_assets
   rails (= 4.1.0.rc2)
   rails_12factor

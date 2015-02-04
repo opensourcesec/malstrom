@@ -17,8 +17,8 @@ listen "/tmp/unicorn.malstrom.sock"
 listen "/tmp/unicorn.myapp.sock"
 
 # Number of processes
-# worker_processes 4
-worker_processes 2
+worker_processes 4
+#worker_processes 2
 
 # Time-out
 timeout 75

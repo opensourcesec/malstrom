@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: malstrom
+  pool: 5
+  username: malik
+  password: MalstromRules
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: malstrom
+  pool: 5
+  username: malik
+  password: MalstromRules
