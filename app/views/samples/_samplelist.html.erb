@@ -4,11 +4,15 @@
 
    <div>
      <div class="container">
-       <%= form_tag("/search", method: "get") do %>
-           <%= label_tag(:q, "") %>
-           <%= text_field_tag(:q) %>
-           <%= submit_tag("Search", class: "btn btn-info") %>
-       <% end %>
+       <div class="col-lg-6">
+         <div class="input-group">
+           <%# label_tag(:mal_tags, "Tags") %>
+           <%= text_field(:search, :samples, :class => "form-control", :placeholder => "MD5") %>
+           <span class="input-group-btn">
+                    <%= submit_tag("Search", class: "btn btn-info")%>
+                </span>
+         </div><!-- /input-group -->
+       </div><!-- /.col-lg-6 -->
      </div>
      <% @all_malz = Sample.all %>
      <div class="container">

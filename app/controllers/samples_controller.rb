@@ -1,9 +1,9 @@
-class SamplesController < ApplicationController
-
 require 'digest'
 require 'zip'
 require 'analyzer'
 require 'hex_string'
+
+class SamplesController < ApplicationController
 
   ## Required javascript to render partials ##
   def samplelist
@@ -57,7 +57,8 @@ require 'hex_string'
     magic = hex[0,5]
     if magic == "4d 5a"
       @type = "PE"
-      @scan_results = scan.scan_pe(contents, hex)
+      scan_results = scan.scan_pe(contents, hex).html_safe
+      @sample.deepdive = scan_results
     elsif magic == "ff d8"
       @type = "JPG"
       @page = scan.scan_jpg(content)

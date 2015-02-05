@@ -7,19 +7,8 @@ Installation
 ---------
 * Clone repository
 * cd into project directory and run 'bundle install'
-* setup the database.yml file by running:
-
-    nano config/database.yml
-
-  
-* In the database.yml file, copy and paste this data to setup a db schema:
-
-    production:
-      adapter: sqlite3
-      database: db/production.sqlite3
-      pool: 5
-      timeout: 5000
-
-* Type Ctrl-X and hit return to save
+* setup the database.yml config file for your chosen DB
 * Type 'rake db:migrate' to run database migrations
-* Finally, run the server with the command 'rails server'
+* Run 
+`RAILS_ENV=production bundle exec rake assets:precompile` to precompile assets
+* Finally, run the server with the command 'rails server -e production'

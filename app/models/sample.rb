@@ -1,4 +1,6 @@
 class Sample < ActiveRecord::Base
+  include ActionView::Helpers::TextHelper
+
   has_attached_file :malz,
                     :url  => "/assets/malware/:basename.:extension",
                     :path => ":rails_root/app/assets/malware/:basename.:extension"

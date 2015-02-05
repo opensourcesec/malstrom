@@ -1,8 +1,8 @@
 require 'hex_string'
 require 'digest'
-require 'pedump'
 require 'exifr'
 require 'metasm'
+require 'pe'
 require_relative 'virustotal'
 
 class Analysis
@@ -31,14 +31,6 @@ class Analysis
   def scan_pe(sample, hex)
     ## Analyzes PE Files
 
-    pe = PEdump.new
-    #mz = pe.mz(sample)
-    #dosstub = pe.dos_stub(sample)
-    iat = pe.imports(sample)
-    eat = pe.exports(sample)
-    res = pe.resources(sample)
-
-
     ## Set Image File Header values ##
     #win32 = "014c"
     #itanium64 = "0200"
@@ -66,7 +58,9 @@ class Analysis
       build = "i386 (32-bit x86)"
     end
 
-    puts "Build: #{build}\nImports: #{iat}\nExports: #{eat}\nResources: #{res}"
+    data =  pedumper(sample)
+
+    return data
   end
 
 
