@@ -1,7 +1,7 @@
 require 'digest'
-require 'zip'
 require 'analyzer'
 require 'hex_string'
+require 'archive/zip'
 
 class SamplesController < ApplicationController
 
@@ -31,19 +31,51 @@ class SamplesController < ApplicationController
   # malware upload function
   def upload_malz
     @sample = Sample.new( params[:sample] )
-    if params[:box]
-      Zip::File.open(@sample) do |zipfile|
+    @sample.malz = params[:malz]
+    if @sample.save
+      if params[:box]
+        if params[:passwd]
+          unzipper(params[:sample], @sample.malz.path, params[:passwd][:box], params[:tags_list])
+          @sample.malz.destroy
+          @sample.delete
+        else
+          pass=''
+          unzipper(params[:sample], @sample.malz.path, pass, params[:tags_list])
+          @sample.malz.destroy
+          @sample.delete
+        end
+        redirect_to samples_list_path, :notice => "Archive was extracted successfully!"
+        return
+      end
+      redirect_to samples_list_path, :notice => "Sample was uploaded successfully!"
+    end
+    analyze = Analysis.new
+    Thread.new { analyze.hashes(@sample.malz.path, @sample.malz_file_name) }
+  end
+
+  def unzipper(formdata, sample, zip_pass, tags)
+    if zip_pass.length > 0
+      if Archive::Zip.extract(sample, 'app/assets/malware', :password => zip_pass) do |zipfile|
         zipfile.each do |data|
-          @sample.malz = data
+          new_sample = Sample.create(formdata)
+          new_sample.malz = File.open(data, 'rb')
+          new_sample.tag_list = tags
+          analyze = Analysis.new
+          Thread.new { analyze.hashes(new_sample.malz.path, new_sample.malz_file_name) }
+          end
         end
       end
-    end
-    @sample.malz = params[:malz]
-    @sample.tag_list = params[:tag_list][:malz]
-    if @sample.save
-      redirect_to samples_list_path, :notice => "Sample has been uploaded successfully!"
-      analyze = Analysis.new
-      Thread.new { analyze.hashes(@sample.malz.path, @sample.malz_file_name) }
+    else
+      if Archive::Zip.extract(sample) do |zipfile|
+        zipfile.each do |data|
+          new_sample = Sample.create(formdata)
+          new_sample.malz = File.open(data, 'rb')
+          new_sample.tag_list = tags
+          analyze = Analysis.new
+          Thread.new { analyze.hashes(new_sample.malz.path, new_sample.malz_file_name) }
+          end
+        end
+      end
     end
   end
 
