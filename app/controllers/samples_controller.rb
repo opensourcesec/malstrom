@@ -32,15 +32,16 @@ class SamplesController < ApplicationController
   def upload_malz
     @sample = Sample.new( params[:sample] )
     @sample.malz = params[:malz]
+    @sample.tag_list = params[:tag_list][:malz]
     if @sample.save
       if params[:box]
         if params[:passwd]
-          unzipper(params[:sample], @sample.malz.path, params[:passwd][:box], params[:tags_list])
+          unzipper(params[:sample], @sample.malz.path, params[:passwd][:box], params[:tag_list][:malz])
           @sample.malz.destroy
           @sample.delete
         else
           pass=''
-          unzipper(params[:sample], @sample.malz.path, pass, params[:tags_list])
+          unzipper(params[:sample], @sample.malz.path, pass, params[:tag_list][:malz])
           @sample.malz.destroy
           @sample.delete
         end
