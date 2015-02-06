@@ -28,6 +28,13 @@ class SamplesController < ApplicationController
   end
   ## End of JS for partials ##
 
+  # malware downloads
+  def download_malz
+    send_data File.open("app/assets/malware/#{params[:sample]}", 'rb').read, :filename => "#{params[:sample]}"
+  end
+  helper_method :download_malz
+
+
   # malware upload function
   def upload_malz
     @sample = Sample.new( params[:sample] )

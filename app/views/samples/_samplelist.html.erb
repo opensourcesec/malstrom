@@ -32,7 +32,7 @@
             </thead>
             <tbody>
             <% @all_malz.each do |mal| %>
-                <td><%= mal.malz_file_name %></td>
+                <td><%= mal.malz_file_name %> <%= link_to '', samples_download_malz_path(:sample => mal.malz_file_name), :class => 'glyphicon glyphicon-download' %></td>
                 <td><%= link_to mal.md5sum, samples_analysis_path(:md5 => mal.md5sum) %></td>
                 <td><%= mal.malz_content_type %></td>
                 <% if mal.detection == 'N/A' %>
