@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<h3>
-  Results Found: <%= @results.count %>
-</h3>
+<%= paginate @results %>
 <table class="table table-striped">
   <thead>
   <tr>
