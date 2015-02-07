@@ -10,7 +10,6 @@ class Sample < ActiveRecord::Base
   validates_attachment_size :malz, :less_than => 10.megabytes
   # Allow tagging
   acts_as_taggable
-  paginates_per 20
 
   def samples
     render partial 'samples'
