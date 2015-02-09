@@ -131,6 +131,18 @@ class SamplesController < ApplicationController
     redirect_to samples_list_path, :notice => "Sample deleted successfully!"
   end
 
+  # add notes
+  def add_note
+    samps = Sample.find_by_id(params[:sample_id])
+    note_contents = params[:note_content]
+    samps.notes = note_contents
+    if samps.save
+      flash :notice => "Notes have been udpated successfully!"
+    else
+      redirect_to samples_list_path, :alert => "Error: Could not save notes"
+    end
+  end
+
   # add yara signatures
   def add_rule
     new_rule_content = params[:rule_body]
@@ -146,7 +158,7 @@ class SamplesController < ApplicationController
       File.write(new_rule_path, new_rule_content)
       redirect_to samples_list_path, :notice => "Signature has been uploaded successfully!"
     rescue
-      redirect_to samples_list_path, :alert => "Could not create rule"
+      redirect_to samples_list_path, :alert => "Error: Could not create rule"
     end
   end
 

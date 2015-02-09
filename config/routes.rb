@@ -45,6 +45,8 @@ Malstrom::Application.routes.draw do
 
   get "samples/analysis" => "samples#analysis"
 
+  post "samples/add_note" => "samples#add_note"
+
   get "samples/remove_rule" => "samples#remove_rule"
   
   get "samples/new_yara" => "samples#new_yara"

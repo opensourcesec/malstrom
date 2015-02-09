@@ -35,3 +35,21 @@
     </div>
   </div>
 
+<div class="col-xs-4" style="float">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title">Notes</h3>
+    </div>
+    <div class="panel-body">
+      <%= form_tag("add_note", method: "post") do %>
+          <%= label_tag(:add_note, '') %>
+          <div>
+            <%= text_area_tag(:note_content, "#{@sample.notes}", size: "52x15") %>
+          </div>
+          <div>
+            <%= submit_tag("Save", class: "btn btn-primary") %>
+          </div>
+          <% end %>
+    </div>
+  </div>
+</div>
