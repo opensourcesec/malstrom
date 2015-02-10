@@ -1,23 +1,21 @@
 <style type="text/css"> .centerDiv { width: 17%; height:100px; margin: 0 auto;  text-align: center;} </style>
 
 <div class="tab-pane active">
-   <div>
-     <div class="container">
-       <div class="col-lg-6">
-         <div class="input-group">
-           <%= text_field(:search, :samples, :class => "form-control", :placeholder => "MD5") %>
-           <span class="input-group-btn">
-                    <%= submit_tag("Search", class: "btn btn-info")%>
-                </span>
-         </div><!-- /input-group -->
-       </div><!-- /.col-lg-6 -->
-     </div>
-     <div class="container">
-       <!-- Default panel contents -->
-       <div class="panel-heading"></div>
-     </div>
-     <% @all_malz = Sample.all %>
+   <div class="container">
+     <div class="panel panel-default">
+       <div class="panel-heading">
+         <div class="container">
+           <div class="col-lg-6">
+             <div class="input-group">
+               <%= text_field(:search, :samples, :class => "form-control", :placeholder => "MD5") %>
+               <span class="input-group-btn">
+             <%= submit_tag("Search", class: "btn btn-info")%>
+           </span>
+             </div><!-- /input-group -->
+           </div><!-- /.col-lg-6 -->
+         </div>
         <table class="table table-striped">
+          <% @all_malz = Sample.all %>
             <thead>
                 <tr>
                   <th>Filename</th>
@@ -45,5 +43,7 @@
             </tbody>
             <% end %>
         </table>
+       </div>
+     </div>
    </div>
 </div>
