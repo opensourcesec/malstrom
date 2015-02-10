@@ -105,14 +105,11 @@ class SamplesController < ApplicationController
     elsif magic == "7f 45"
       @type = "ELF"
       @page = scan.scan_elf(content)
-    elsif magic == "23 21"
-      @type = "Script"
-      @page = scan.scan_script(content)
     elsif magic == "25 50"
       @type = "PDF"
       @page = "default"
     else
-      @type = "unknown!"
+      @type = `file #{@sample.malz.path} | cut -d ':' -f 2`
       @page = "default"
     end
   end
