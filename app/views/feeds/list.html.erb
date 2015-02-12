@@ -8,33 +8,34 @@
     Add Threat Feed <%= link_to '', feeds_new_feed_path, class: 'glyphicon glyphicon-plus btn btn-success' %>
   </h4>
 </head>
-<body>
-
-<div>
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>URL</th>
-    <th>Run Now</th>
-    <th>Remove</th>
-    <th>Tags</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @feeds.each do |feed| %>
-      <tr>
-        <td><%= feed.name %></td>
-        <td><%= feed.url %></td>
-        <td><%= link_to '', feeds_run_feed_path(:url => feed.url, :name => feed.name, :tags => feed.tag_list), class: 'glyphicon glyphicon-retweet btn btn-primary' %></td>
-        <td><%= link_to '', feeds_delete_feed_path(:name => feed.name), class: 'glyphicon glyphicon-trash btn btn-danger' %></td>
-        <% feed.tag_list.each do |tag| %>
+  <body>
+    <div class="col-xs-12">
+    <div class="panel panel-success">
+    <table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>URL</th>
+        <th>Run Now</th>
+        <th>Remove</th>
+        <th>Tags</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% @feeds.each do |feed| %>
+        <tr>
+            <td><%= feed.name %></td>
+            <td><%= feed.url %></td>
+            <td><%= link_to '', feeds_run_feed_path(:url => feed.url, :name => feed.name, :tags => feed.tag_list), class: 'glyphicon glyphicon-retweet btn btn-primary' %></td>
+            <td><%= link_to '', feeds_delete_feed_path(:name => feed.name), class: 'glyphicon glyphicon-trash btn btn-danger' %></td>
+            <% feed.tag_list.each do |tag| %>
             <td><%= link_to tag, threats_profile_path(:tag => tag), :class => 'label label-large label-info' %></td>
+            <% end %>
+        </tr>
         <% end %>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-</div>
-</body>
+    </tbody>
+    </table>
+    </div>
+    </div>
+  </body>
 </html>
