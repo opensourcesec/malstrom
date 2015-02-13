@@ -21,14 +21,16 @@ class Analysis
     vt = VirusTotal.new
     detect = vt.vtquery(sha256hash)
     samp.detection = detect
+
     samp.save
+
   end
 
 
 ######################### PE Module ########################
 
 
-  def scan_pe(sample, hex)
+  def scan_pe(sample)
     ## Analyzes PE Files
 
     ## Set Image File Header values ##
@@ -36,33 +38,17 @@ class Analysis
     #itanium64 = "0200"
     #winamd64 = "8664"
 
-    ## Identify File Header relative to start of PE header ##
-    offset = hex.index "50 45 00 00"
-    offset = offset + 12
-    a = hex[offset, 5]
-
-    test32 = a.index('4c 01')
-    testia64 = a.index('00 02')
-    test64 = a.index ('86 64')
-    if test32.nil?
-      if testia64.nil?
-        if test64.nil?
-          build = "Unknown"
-        else
-          build = "AMD-64 (64-bit x64)"
-        end
-      else
-        build = "IA-64 (Itanium)"
-      end
-    else
-      build = "i386 (32-bit x86)"
-    end
-
     data =  pedumper(sample)
 
     return data
   end
 
+######################### PDF Module ########################
+
+
+  def scan_pdf(sample)
+    ## Analyzes PDF Files
+  end
 
 ######################### JPG Module ########################
 
@@ -79,9 +65,7 @@ class Analysis
 
   def scan_elf(sample)
     ## Provide hashes
-
     elf = Metasm::ELF.decode_file(sample)
-
     ## Output strings to file
     strings(sample)
   end

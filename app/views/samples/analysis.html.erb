@@ -45,6 +45,7 @@
           <%= label_tag(:add_note, '') %>
           <div>
             <%= text_area_tag(:note_content, "#{@sample.notes}", size: "52x15") %>
+            <%= hidden_field_tag(:sample_id, @sample.id) %>
           </div>
           <div>
             <%= submit_tag("Save", class: "btn btn-primary") %>

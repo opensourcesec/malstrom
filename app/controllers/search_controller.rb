@@ -5,8 +5,8 @@ class SearchController < ApplicationController
   end
 
   def index
+    # IOC search page handler
     if params[:search][0].to_s.length < 1
-      flash.now[:alert] = "Error: Incorrect search options or no input received"
       redirect_to search_indicators_path
     else
       query = params[:search][0]
@@ -15,10 +15,14 @@ class SearchController < ApplicationController
   end
 
   def search(search)
+    # search function
     @results = Element.where("value like ?", "%#{search}%").page params[:page]
     if @results.blank?
-      flash.now[:alert] = "Sorry.. 0 results found"
-      render search_indicators_path
+      redirect_to search_indicators_path, :alert => "No results"
     end
+  end
+
+  def import
+    # Function to import IOC's from lists, PDF, CSV, etc..
   end
 end

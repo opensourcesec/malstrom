@@ -6,6 +6,8 @@ Malstrom::Application.routes.draw do
 
   get 'threats/profile'
 
+  get 'feeds/import'
+
   get 'feeds/list'
 
   get 'feeds/new_feed'

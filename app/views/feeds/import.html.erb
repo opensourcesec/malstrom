@@ -1,0 +1,20 @@
+<div class="col-lg-6">
+  <!-- Default panel contents -->
+  <h4><span class="glyphicon glyphicon-cloud-upload"></span> Import IOC set:</h4>
+  <div class="container">
+    <%= form_tag @extract, html: {action: :upload_ioc}, multipart: true do %>
+        <%= file_field_tag 'ioc_set' %>
+        <h5><span class="glyphicon glyphicon-tags"></span> Tags</h5>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="input-group">
+              <%= text_field(:tag_list, :upload_ioc, :class => "form-control", :placeholder => "Putter Panda, APT, from report") %>
+              <span class="input-group-btn">
+                    <%= submit_tag("Import", class: "btn btn-primary")%>
+                </span>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+        </div>
+    <% end %>
+  </div>
+</div>

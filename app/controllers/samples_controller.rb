@@ -89,16 +89,17 @@ class SamplesController < ApplicationController
 
   # sample analysis function
   def analysis
-    scan = Analysis.new
-    @sample = Sample.find_by_md5sum(params[:md5])
+    @sample = Sample.find_by_md5sum(params[:md5sum])
     contents = File.open(@sample.malz.path, 'rb')
     content = contents.read
     hex = content.to_hex_string
     magic = hex[0,5]
+    scan = Analysis.new
+
     if magic == "4d 5a"
       @type = "PE"
-      scan_results = scan.scan_pe(contents, hex).html_safe
-      @sample.deepdive = scan_results
+      scan_results = scan.scan_pe(contents).html_safe
+      samp.deepdive = scan_results
     elsif magic == "ff d8"
       @type = "JPG"
       @page = scan.scan_jpg(content)
@@ -130,14 +131,19 @@ class SamplesController < ApplicationController
 
   # add notes
   def add_note
-    samps = Sample.find_by_id(params[:sample_id])
+    sample = Sample.find_by_id(params[:sample_id])
     note_contents = params[:note_content]
-    samps.notes = note_contents
-    if samps.save
-      flash :notice => "Notes have been udpated successfully!"
+    sample.notes = note_contents
+    if sample.save
+      redirect_to samples_analysis_path(:md5sum => sample.md5sum), :notice => "Notes have been updated successfully!"
     else
       redirect_to samples_list_path, :alert => "Error: Could not save notes"
     end
+  end
+
+  # parameterss for notes
+  def add_note_params
+    params.require(:note_content, :sample_id)
   end
 
   # add yara signatures

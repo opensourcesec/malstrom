@@ -6,9 +6,9 @@
   <tr>
     <th>Value</th>
     <th>Type</th>
-    <th>Source</th>
     <th>Tags</th>
     <th>Created</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= i.value %></td>
         <td><%= i.kind %></td>
-        <td><%= i.source %></td>
         <td><%= i.tag_list %></td>
         <td><%= i.created_at %></td>
+        <td><%= link_to '', '#', :class => 'btn btn-danger glyphicon glyphicon-remove'%></td>
       </tr>
   <% end %>
   </tbody>

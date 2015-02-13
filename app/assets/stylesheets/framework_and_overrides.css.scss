@@ -41,7 +41,7 @@ img {
 main {
   @extend .container;
   background-color: #eee;
-  padding-bottom: 80px;
+  padding-bottom: 50px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
   }
@@ -85,3 +85,23 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  padding-top: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: gray;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+}
+
+body { padding-bottom: 70px; }
