@@ -99,7 +99,7 @@ class SamplesController < ApplicationController
     if magic == "4d 5a"
       @type = "PE"
       scan_results = scan.scan_pe(contents).html_safe
-      samp.deepdive = scan_results
+      @sample.deepdive = scan_results
     elsif magic == "ff d8"
       @type = "JPG"
       @page = scan.scan_jpg(content)
