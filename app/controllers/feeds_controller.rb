@@ -1,4 +1,5 @@
 require 'retrieve'
+require 'docsplit'
 
 class FeedsController < ApplicationController
   before_filter :authenticate_user!
@@ -53,5 +54,14 @@ class FeedsController < ApplicationController
 
   def scheduler
     # function to keep track of feed scheduling
+  end
+
+  def import
+    # function to import indicators of compromise
+    #update = Updater.new
+    #data = Docsplit.extract_text(params[:upload_ioc], :ocr => false, :output => 'storage/text')
+
+    # New job for IOC import
+    #update.retrieval(data, params[:tags])
   end
 end

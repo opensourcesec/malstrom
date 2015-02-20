@@ -7,25 +7,14 @@ class ThreatsController < ApplicationController
     @mal_matches = []
     @tag_name = params[:tag]
 
-    ioc_set = Element.all
-    mal_set = Sample.all
-
-    # Iterate over all IOCs
-    ioc_set.each do |item|
-      item.tag_list.each do |tag|
-        if tag == @tag_name
-          @ioc_matches.push(item.value)
-        end
+    # Query IOCs table
+    Element.tagged_with(@tag_name).find_each do |item|
+      @ioc_matches.push(item.value)
       end
-    end
 
-    # Iterate over all Samples
-    mal_set.each do |item|
-      item.tag_list.each do |tag|
-        if tag == @tag_name
-          @mal_matches.push(item.md5sum)
-        end
-      end
+    # Query Samples table
+    Sample.tagged_with(@tag_name).find_each do |item|
+      @mal_matches.push(item.md5sum)
     end
 
     @tagged = @ioc_matches.length + @mal_matches.length

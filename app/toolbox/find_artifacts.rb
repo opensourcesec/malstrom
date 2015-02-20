@@ -17,7 +17,7 @@ class FindArtifacts
   end
 
   def domain(line, tags)
-    patt = '([a-z0-9]+(?:[\-|\.][a-z0-9]+)*\.(?:com|net|ru|org|de|uk|jp|br|pl|info|fr|it|cn|in|su|pw|biz|co|eu|nl))'
+    patt = '([a-z0-9]+(?:[\-|\.][a-z0-9]+)*(?:\[\.\]|\.)(?:com|net|ru|org|de|uk|jp|br|pl|info|fr|it|cn|in|su|pw|biz|co|eu|nl))'
     matches = line.scan(/#{patt}/)
     matches.each do |match|
       match = match[0]

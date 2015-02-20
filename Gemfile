@@ -29,6 +29,7 @@ gem 'rest-client'
 gem 'pedump'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
+gem 'docsplit'
 
 group :development do
   gem 'better_errors'
