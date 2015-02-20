@@ -1,7 +1,7 @@
 <div>
     <div class="page-header">
       <p class="center"><%= image_tag("Malstrom.png", :size => "360x80", :crop => :fill) %></p>
-      <h2 align="center">{ Malware Intelligence }</h2>
+      <h4 align="center"><i>"Malware can hide, but it must run"</i> - SANS Institute</h4>
     </div>
 
   <% if user_signed_in? %>
@@ -24,6 +24,17 @@
               <% @files = Dir['app/assets/yara/*.yar']%>
             <div class="panel-body"><span class="badge badge-info"><%= @files.length %></span></div>
             </div>
+
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h5 class="panel-title">Tags</h5>
+              </div>
+              <div class="panel-body">
+                <% tag_cloud( Sample.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
+                    <%= link_to tag, threats_profile_path(:tag => tag), :class => css_class %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -32,7 +43,7 @@
       <div class="col-xs-6" style="float: right:">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h4>Threat Intelligence</h4>
+            <h4>Intelligence</h4>
             <div class="panel panel-info">
             <div class="panel-heading">
                 <h1 class="panel-title">Feeds</h1>
@@ -45,6 +56,18 @@
                 <h1 class="panel-title">Indicators</h1>
             </div>
             <div class="panel-body"><span class="badge badge-info"><%= Element.count(:all)%></span></div>
+            </div>
+
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h5 class="panel-title">Tags</h5>
+                </div>
+
+                <div class="panel-body">
+                  <% tag_cloud( Element.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
+                      <%= link_to tag, threats_profile_path(:tag => tag), :class => css_class %>
+                  <% end %>
+                </div>
             </div>
           </div>
         </div>
