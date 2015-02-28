@@ -8,7 +8,7 @@
     <ul class="nav nav-pills">
       <li class="<%= 'active' if current_page?(samples_samplelist_path) %>"><%= link_to "Samples", samples_samplelist_path, :remote => true, :data => {:toggle=>"pill"} %></li>
       <li class="<%= 'active' if current_page?(samples_upload_path) %>"><%= link_to "Upload", samples_upload_path, :remote => true, :data => {:toggle=>"pill"} %></li>
-      <!--<li class="<%# 'active' if current_page?(samples_list_path) %>"><%# link_to "Yara",  %></li>-->
+      <li class="<%= 'active' if current_page?(samples_yara_path) %>"><%= link_to "Yara", samples_yara_path, :remote => true, :data => {:toggle=>"pill"} %></li>
     </ul>
 </div>
 <div class="row">
