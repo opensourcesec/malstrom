@@ -56,12 +56,19 @@ class FeedsController < ApplicationController
     # function to keep track of feed scheduling
   end
 
-  def import
+  def extract
     # function to import indicators of compromise
-    #update = Updater.new
-    #data = Docsplit.extract_text(params[:upload_ioc], :ocr => false, :output => 'storage/text')
+    update = Updater.new
+    data = Docsplit.extract_text(params[:ioc_set].tempfile, :ocr => false, :output => 'storage/text')
 
     # New job for IOC import
-    #update.retrieval(data, params[:tags])
+    Thread.new { update.retrieval(data, params[:tags][:upload_ioc]) }
+
+    #if update
+    #  redirect_to :feeds_import_path, :notice => "IOC's are being processed!"
+    #else
+    #  flash.now[:alert] = "Error: IOC file could not be processed"
+    #  redirect_to :feeds_import_path
+    #end
   end
 end

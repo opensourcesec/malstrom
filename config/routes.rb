@@ -8,8 +8,8 @@ Malstrom::Application.routes.draw do
 
   get 'feeds/import'
 
-  post 'feeds/import' => "feeds#import"
-  resources :import, :controller => "feeds"
+  post 'feeds/import' => "feeds#extract"
+  resources :extract, :controller => "feeds"
 
   get 'feeds/list'
 

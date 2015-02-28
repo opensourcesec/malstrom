@@ -21,8 +21,4 @@ class SearchController < ApplicationController
       redirect_to search_indicators_path, :alert => "No results"
     end
   end
-
-  def import
-    # Function to import IOC's from lists, PDF, CSV, etc..
-  end
 end
