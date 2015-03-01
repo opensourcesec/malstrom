@@ -65,7 +65,7 @@ class FeedsController < ApplicationController
     tags = params[:tag_list][:upload_ioc]
     File.open(tmp_path, 'wb') { |file| file.write("#{file_data}") }
     Docsplit.extract_text(tmp_path, :ocr => false, :output => 'tmp/docsplit')
-    data = File.open(tmp_path, 'rb').read
+    data = File.open("#{tmp_path}", 'rb').read
 
     # New jobs for IOC import
     Thread.new { extractor.ipv4(data, tags) }
@@ -73,8 +73,8 @@ class FeedsController < ApplicationController
     Thread.new { extractor.md5(data, tags) }
 
     if data
-      File.delete(tmp_path)
-      File.delete(file_name)
+      #File.delete(tmp_path)
+      #File.delete(file_name)
       redirect_to :feeds_import, :notice => "IOC's are being processed!"
     else
       flash.now[:alert] = "Error: IOC file could not be processed"
