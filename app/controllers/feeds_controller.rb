@@ -59,20 +59,18 @@ class FeedsController < ApplicationController
   def extract
     # function to import indicators of compromise
     extractor = FindArtifacts.new
-    uploaded = params[:ioc_set]
     file_name = params[:ioc_set].original_filename
     file_data = params[:ioc_set].tempfile.open.read
     tmp_path = "tmp/docsplit/#{file_name}"
     File.open(tmp_path, 'wb') { |file| file.write("#{file_data}") }
     data = Docsplit.extract_text(tmp_path, :ocr => false)
 
-    # New job for IOC import
+    # New jobs for IOC import
     Thread.new { extractor.ipv4(data, params[:tags][:upload_ioc]) }
     Thread.new { extractor.domain(data, params[:tags][:upload_ioc]) }
     Thread.new { extractor.md5(data, params[:tags][:upload_ioc]) }
 
-
-    if update
+    if extractor
       File.delete(tmp_path)
       File.delete(file_name)
       redirect_to :feeds_import, :notice => "IOC's are being processed!"
