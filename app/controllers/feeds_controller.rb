@@ -64,7 +64,8 @@ class FeedsController < ApplicationController
     tmp_path = "tmp/docsplit/#{file_name}"
     tags = params[:tag_list][:upload_ioc]
     File.open(tmp_path, 'wb') { |file| file.write("#{file_data}") }
-    data = Docsplit.extract_text(tmp_path, :ocr => false)
+    txt_file = Docsplit.extract_text(tmp_path, :ocr => false, :output => tmp_path)
+    data = File.open(tmp_path, 'rb')
 
     # New jobs for IOC import
     Thread.new { extractor.ipv4(data, tags) }
