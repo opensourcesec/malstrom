@@ -1,4 +1,4 @@
-require 'retrieve'
+require 'find_artifacts'
 require 'docsplit'
 
 class FeedsController < ApplicationController
@@ -58,7 +58,7 @@ class FeedsController < ApplicationController
 
   def extract
     # function to import indicators of compromise
-    update = Updater.new
+    extractor = FindArtifacts.new
     uploaded = params[:ioc_set]
     file_name = params[:ioc_set].original_filename
     file_data = params[:ioc_set].tempfile.open.read
@@ -67,10 +67,11 @@ class FeedsController < ApplicationController
     data = Docsplit.extract_text(tmp_path, :ocr => false)
 
     # New job for IOC import
-    Thread.new { update.retrieval(data, params[:tags][:upload_ioc]) }
+    Thread.new { extractor.find_artifacts(data, params[:tags][:upload_ioc]) }
 
     if update
       File.delete(tmp_path)
+      File.delete(file_name)
       redirect_to :feeds_import, :notice => "IOC's are being processed!"
     else
       flash.now[:alert] = "Error: IOC file could not be processed"
