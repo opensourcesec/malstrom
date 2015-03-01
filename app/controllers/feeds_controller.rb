@@ -67,9 +67,9 @@ class FeedsController < ApplicationController
     data = Docsplit.extract_text(tmp_path, :ocr => false)
 
     # New job for IOC import
-    Thread.new { extractor.find_artifacts.ipv4(data, params[:tags][:upload_ioc]) }
-    Thread.new { extractor.find_artifacts.domain(data, params[:tags][:upload_ioc]) }
-    Thread.new { extractor.find_artifacts.md5(data, params[:tags][:upload_ioc]) }
+    Thread.new { extractor.ipv4(data, params[:tags][:upload_ioc]) }
+    Thread.new { extractor.domain(data, params[:tags][:upload_ioc]) }
+    Thread.new { extractor.md5(data, params[:tags][:upload_ioc]) }
 
 
     if update
