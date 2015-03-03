@@ -1,28 +1,27 @@
+<script src="tagCanvas.js" type="text/javascript"></script>
+
 <h2>Threat Tags</h2>
-<div class="col-sm-6">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h5 class="panel-title">IOC</h5>
-    </div>
 
-    <div class="panel-body">
+<script type="text/javascript">
+    window.onload = function() {
+        try {
+            TagCanvas.Start('myCanvas');
+        } catch(e) {
+            // something went wrong, hide the canvas container
+            document.getElementById('myCanvasContainer').style.display = 'none';
+        }
+    };
+</script>
+
+<div id="myCanvasContainer">
+  <canvas width="1000" height="600" id="myCanvas">
+    <p>Anything in here will be replaced on browsers that support the canvas element</p>
       <% tag_cloud( Element.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
-          <%= link_to tag, threats_profile_path(:tag => tag), :class => css_class %>
+        <%= link_to tag, threats_profile_path(:tag => tag), :class => css_class %>
       <% end %>
-    </div>
-  </div>
-</div>
 
-<div class="col-sm-6">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h5 class="panel-title">Malware</h5>
-    </div>
-
-    <div class="panel-body">
       <% tag_cloud( Sample.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
           <%= link_to tag, threats_profile_path(:tag => tag), :class => css_class %>
       <% end %>
-    </div>
-  </div>
+  </canvas>
 </div>

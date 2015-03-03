@@ -63,9 +63,16 @@ class FeedsController < ApplicationController
     file_data = params[:ioc_set].tempfile.open.read
     tmp_path = "tmp/docsplit/#{file_name}"
     tags = params[:tag_list][:upload_ioc]
+
+    # Save uploaded IOC report
     File.open(tmp_path, 'wb') { |file| file.write("#{file_data}") }
+    # Extract text
     Docsplit.extract_text(tmp_path, :ocr => false, :output => 'tmp/docsplit')
-    data = File.open("#{tmp_path}", 'rb').read
+
+    # Open TXT file
+    base_name = file_name.split('.')[0]
+    data_path = "tmp/docsplit/#{base_name}"
+    data = File.open("#{data_path}.txt", 'rb').read
 
     # New jobs for IOC import
     Thread.new { extractor.ipv4(data, tags) }

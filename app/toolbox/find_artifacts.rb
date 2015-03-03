@@ -34,7 +34,7 @@ class FindArtifacts
   end
 
   def md5(line, tags)
-    patt = re.compile("([A-Fa-f0-9]{32})")
+    patt = "([A-Fa-f0-9]{32})"
     matches = line.scan(/#{patt}/)
     matches.each do |match|
       match = match[0]
