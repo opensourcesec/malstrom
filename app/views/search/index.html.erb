@@ -18,7 +18,7 @@
         <td><%= i.kind %></td>
         <td><%= i.tag_list %></td>
         <td><%= i.created_at %></td>
-        <td><%= link_to '', '#', :class => 'btn btn-danger glyphicon glyphicon-remove'%></td>
+        <td><%= link_to '', search_delete_iocs_path(:ioc => i.id), :class => 'btn btn-danger glyphicon glyphicon-remove'%></td>
       </tr>
   <% end %>
   </tbody>

@@ -24,6 +24,8 @@ Malstrom::Application.routes.draw do
   get 'feeds/delete_feed' => "feeds#delete_feed"
   resources :delete_feed, :controller => "feeds"
 
+  get 'search/delete_iocs' => "search#delete_iocs"
+
   get 'search/indicators'
 
   get 'search/index'

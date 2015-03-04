@@ -21,4 +21,16 @@ class SearchController < ApplicationController
       redirect_to search_indicators_path, :alert => "No results"
     end
   end
+
+  def delete_iocs
+    # function to remove IOCs from the db
+    data = params[:ioc]
+    ioc = Element.find_by(:id => data)
+    begin
+      ioc.destroy
+    rescue
+      redirect_to :back, :alert => "Error: IOC was not deleted!"
+    end
+    redirect_to :back, :notice => "IOC successfully deleted!"
+  end
 end
