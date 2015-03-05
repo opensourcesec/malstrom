@@ -4,17 +4,7 @@
    <div class="container-fluid">
      <div class="panel panel-default">
        <div class="panel-heading">
-         <div class="container">
-           <div class="col-lg-6">
-             <div class="input-group">
-               <%= text_field(:search, :samples, :class => "form-control", :placeholder => "MD5") %>
-               <span class="input-group-btn">
-             <%= submit_tag("Search", class: "btn btn-info")%>
-           </span>
-             </div><!-- /input-group -->
-           </div><!-- /.col-lg-6 -->
-         </div>
-        <table class="table table-striped">
+        <table id="sample_table" class="display table">
           <% @all_malz = Sample.all %>
             <thead>
                 <tr>

@@ -31,6 +31,10 @@ gem 'acts-as-taggable-on'
 gem 'kaminari'
 gem 'docsplit'
 
+#assets
+gem 'jquery-ui-rails'
+gem 'jquery-datatables-rails', '~> 3.1.1'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21, :rbx]
