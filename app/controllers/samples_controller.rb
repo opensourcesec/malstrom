@@ -4,29 +4,11 @@ require 'hex_string'
 require 'archive/zip'
 
 class SamplesController < ApplicationController
+  before_filter :authenticate_user!
 
-  ## Required javascript to render partials ##
-  def samplelist
-    #samples partial
-    respond_to do |format|
-      format.js
-    end
+  def list
+    @all_malz = Sample.all
   end
-
-  def yara
-    #yara sig partial
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def upload
-    #upload partial
-    respond_to do |format|
-      format.js
-    end
-  end
-  ## End of JS for partials ##
 
   # malware downloads
   def download_malz

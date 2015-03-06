@@ -34,18 +34,15 @@ Malstrom::Application.routes.draw do
 
   post 'search/indicators' => "search#index"
 
-  get "samples/list/_samplelist" => 'samples#samplelist', :as => :samples_samplelist
-  resources :samplelist, :controller => "samples"
-
-  get "samples/list/_yara" => 'samples#yara', :as => :samples_yara
+  get "samples/list/yara" => 'samples#yara', :as => :samples_yara
   resources :yara, :controller => "samples"
 
   get "samples/download_malz", :to => "samples#download_malz"
 
-  get "samples/list/_upload" => 'samples#upload', :as => :samples_upload
+  get "samples/list/upload" => 'samples#upload', :as => :samples_upload
   resources :upload, :controller => "samples"
 
-  post "samples/list/_upload" => "samples#upload_malz"
+  post "samples/list" => "samples#upload_malz"
 
   get 'samples/delete_sample' => "samples#delete_malz"
   resources :delete_malz, :controller => "samples"

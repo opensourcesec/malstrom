@@ -1,17 +1,87 @@
-<h2 align="left">
-  <b>Malware Samples</b>
-  <%= image_tag("biohazard-orb.png", :size => "100x60", :style => "float :left",:crop => :fill) %>
-</h2>
 
-<style type="text/css"> .centerDiv { width: 17%; height:20px; margin: 0 auto;  text-align: center;} </style>
-<div id="proftab" class="center">
-    <ul class="nav nav-pills">
-      <li class="<%= 'active' if current_page?(samples_samplelist_path) %>"><%= link_to "Samples", samples_samplelist_path, :remote => true, :data => {:toggle=>"pill"} %></li>
-      <li class="<%= 'active' if current_page?(samples_upload_path) %>"><%= link_to "Upload", samples_upload_path, :remote => true, :data => {:toggle=>"pill"} %></li>
-      <li class="<%= 'active' if current_page?(samples_yara_path) %>"><%= link_to "Yara", samples_yara_path, :remote => true, :data => {:toggle=>"pill"} %></li>
-    </ul>
-</div>
-<div class="row">
-  <div id="profile" class="span9">
+<head>
+    <h2 align="left">
+        <%= image_tag("biohazard-orb.png", :size => "100x60", :style => "float :left",:crop => :fill) %>
+      <b>Malware Samples </b><td><button type="button" class="btn btn-primary glyphicon glyphicon-plus" data-toggle="modal" data-target="#upload-modal"></button></td>
+
+    </h2>
+</head>
+  <div class="container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <table id="sample_table" class="display table">
+          <thead>
+          <tr>
+            <th>Filename</th>
+            <th>MD5</th>
+            <th>MIME</th>
+            <th>Detected</th>
+            <th>Remove</th>
+            <th>Tags</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <% @all_malz.each do |mal| %>
+              <td><%= link_to '', samples_download_malz_path(:sample => mal.malz_file_name), :class => 'glyphicon glyphicon-download' %> <%= mal.malz_file_name %></td>
+              <td><%= link_to mal.md5sum, samples_analysis_path(:md5sum => mal.md5sum) %></td>
+              <td><%= mal.malz_content_type %></td>
+              <% if mal.detection == 'N/A' %>
+                  <td><%= mal.detection %></td>
+              <% else %>
+                  <td><%= link_to mal.detection, "http://virustotal.com/en/file/#{mal.sha256}/analysis", :target => "_blank" %></td>
+              <% end %>
+              <td><%= link_to '', samples_delete_sample_path(:sample_id => mal.id), class: 'glyphicon glyphicon-trash btn btn-danger' %></td>
+              <% mal.tag_list.each do |tag| %>
+                  <td><%= link_to tag, threats_profile_path(:tag => tag), :class => 'label label-large label-info' %></td>
+              <% end %>
+              </tr>
+              </tbody>
+          <% end %>
+          </table>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="upload-modal" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="editLabel">Sample Upload</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag @sample, html: {action: :upload_malz}, multipart: true do %>
+            <%= file_field_tag 'malz' %>
+            <h5><span class="glyphicon glyphicon-compressed"></span> Compressed?</h5>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="input-group">
+          <span class="input-group-addon">
+            <%= check_box_tag(:box) %>
+            <%= label_tag(:box, "Unzip") %>
+         </span>
+                  <%= text_field(:passwd, :box, :class => "form-control", :placeholder => "password (if encrypted)") %>
+                </div>
+              </div><!-- /.col-lg-6 -->
+            </div>
+            <h5><span class="glyphicon glyphicon-tags"></span> Tags</h5>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="input-group">
+                  <%= text_field(:tag_list, :malz, :class => "form-control", :placeholder => "Max++, Rootkit, APT") %>
+                  <span class="input-group-btn">
+                    <%= submit_tag("Upload", :class => "btn btn-primary")%>
+                </span>
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+            </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>
