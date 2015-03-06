@@ -38,7 +38,7 @@
             </label></td>
             <td><%= link_to '', feeds_delete_feed_path(:name => feed.name), class: 'glyphicon glyphicon-trash btn btn-danger' %></td>
             <% feed.tag_list.each do |tag| %>
-            <td><%= link_to tag, threats_profile_path(:tag => tag), :class => 'label label-large label-info' %></td>
+            <td><%= link_to tag, threats_ioc_list_path(:tag => tag), :class => 'label label-large label-info' %></td>
             <% end %>
         </tr>
         <% end %>

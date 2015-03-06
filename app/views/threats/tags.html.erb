@@ -19,11 +19,11 @@
   <canvas width="600" height="600" id="myCanvas">
     <div id="tags">
     <% tag_cloud( Element.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
-        <%= link_to tag, threats_profile_path(:tag => tag), :class => css_class %>
+        <%= link_to tag, threats_ioc_list_path(:tag => tag), :class => css_class %>
       <% end %>
 
       <% tag_cloud( Sample.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
-          <%= link_to tag, threats_profile_path(:tag => tag), :class => css_class %>
+          <%= link_to tag, threats_ioc_list_path(:tag => tag), :class => css_class %>
       <% end %>
      </div>
   </canvas>

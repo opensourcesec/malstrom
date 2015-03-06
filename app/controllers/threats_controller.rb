@@ -1,8 +1,13 @@
 class ThreatsController < ApplicationController
+
   def tags
   end
 
-  def profile
+  def analysis
+    @profile = params[:profile]
+  end
+
+  def ioc_list
     @ioc_matches = []
     @mal_matches = []
     @tag_name = params[:tag]

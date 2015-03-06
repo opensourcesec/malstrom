@@ -4,7 +4,11 @@ Malstrom::Application.routes.draw do
 
   get 'threats/tags'
 
-  get 'threats/profile'
+  get 'threats/ioc_list'
+
+  get 'threats/profiles'
+
+  get 'threats/analysis'
 
   get 'feeds/import'
 
