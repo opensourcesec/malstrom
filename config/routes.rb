@@ -10,6 +10,8 @@ Malstrom::Application.routes.draw do
 
   get 'threats/analysis'
 
+  get 'feeds/ioc'
+
   get 'feeds/import'
 
   post 'feeds/import' => "feeds#extract"

@@ -24,17 +24,6 @@
               <% @files = Dir['app/assets/yara/*.yar']%>
             <div class="panel-body"><span class="badge badge-info"><%= @files.length %></span></div>
             </div>
-
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <h5 class="panel-title">Tags</h5>
-              </div>
-              <div class="panel-body">
-                <% tag_cloud( Sample.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
-                    <%= link_to tag, threats_ioc_list_path(:tag => tag), :class => css_class %>
-                <% end %>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -56,18 +45,6 @@
                 <h1 class="panel-title">Indicators</h1>
             </div>
             <div class="panel-body"><span class="badge badge-info"><%= Element.count(:all)%></span></div>
-            </div>
-
-              <div class="panel panel-info">
-                <div class="panel-heading">
-                  <h5 class="panel-title">Tags</h5>
-                </div>
-
-                <div class="panel-body">
-                  <% tag_cloud( Element.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
-                      <%= link_to tag, threats_ioc_list_path(:tag => tag), :class => css_class %>
-                  <% end %>
-                </div>
             </div>
           </div>
         </div>
