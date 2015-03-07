@@ -1,7 +1,6 @@
-<div class="container-fluid">
+<div class="well">
   <!-- Default panel contents -->
   <h4><span class="glyphicon glyphicon-cloud-upload"></span> Import IOC set:</h4>
-  <div class="container-fluid">
     <%= form_tag @extract, html: {action: :upload_ioc}, multipart: true do %>
         <%= file_field_tag 'ioc_set' %>
         <h5><span class="glyphicon glyphicon-tags"></span> Tags</h5>
