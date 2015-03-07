@@ -141,9 +141,9 @@ class SamplesController < ApplicationController
     new_rule_path = "app/assets/yara/#{rule_name}.yar"
     begin
       File.write(new_rule_path, new_rule_content)
-      redirect_to samples_list_path, :notice => "Signature has been uploaded successfully!"
+      redirect_to samples_yara_path, :notice => "Signature has been uploaded successfully!"
     rescue
-      redirect_to samples_list_path, :alert => "Error: Could not create rule"
+      redirect_to samples_yara_path, :alert => "Error: Could not create rule"
     end
   end
 
@@ -154,9 +154,9 @@ class SamplesController < ApplicationController
     rule_path = "app/assets/yara/#{rule_name}"
     begin
       File.delete(rule_path)
-      redirect_to samples_list_path, :notice => "Signature has been deleted successfully!"
+      redirect_to samples_yara_path, :notice => "Signature has been deleted successfully!"
     rescue
-      redirect_to samples_list_path, :alert => "Could not delete rule"
+      redirect_to samples_yara_path, :alert => "Could not delete rule"
     end
   end
 end

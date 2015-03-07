@@ -1,7 +1,13 @@
 <h2>Threat Profiles <span class="glyphicon glyphicon-user"></span></h2>
 
+<% profiles = Dir["app/views/threats/profile_archive/_*"] %>
+
 <div class="col-xs-6">
     <div class="list-group">
-        <%= link_to 'Test', threats_analysis_path(:profile => 'test'), :class => 'list-group-item' %>
+      <% profiles.each do |item| %>
+        <% item_name = File.basename(item, '.html.erb') %>
+          <% profile = item_name[1..-1] %>
+          <%= link_to "#{profile}", threats_analysis_path(:profile => profile), :class => 'list-group-item' %>
+      <% end %>
     </div>
 </div>

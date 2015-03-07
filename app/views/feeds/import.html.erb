@@ -3,6 +3,9 @@
   <h4><span class="glyphicon glyphicon-cloud-upload"></span> Import IOC set:</h4>
     <%= form_tag @extract, html: {action: :upload_ioc}, multipart: true do %>
         <%= file_field_tag 'ioc_set' %>
+      <div class="well well-sm">
+        <div class="alert alert-info" role="alert"><strong>Supported File Formats:</strong> TXT, CSV, XML, and PDF</div>
+      </div>
         <h5><span class="glyphicon glyphicon-tags"></span> Tags</h5>
         <div class="row">
           <div class="col-lg-6">
@@ -15,5 +18,4 @@
           </div><!-- /.col-lg-6 -->
         </div>
     <% end %>
-  </div>
 </div>
