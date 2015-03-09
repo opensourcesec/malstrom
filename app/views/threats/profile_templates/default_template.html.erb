@@ -2,13 +2,42 @@
   <ul>
     <li>
       <span><i class="glyphicon glyphicon-user"></i> Threat Actor</span>
-      <ul id="ioac">
+      <ul id="actor">
+        <li>
+          <span class="label label-primary label-as-badge"><i class="glyphicon glyphicon-minus-sign"></i> Modus Operandi (MO)</span>
+          <ul id="mo">
+            <li>
+              <span><i class="glyphicon glyphicon-info-sign"></i><%= link_to 'Hacktivist', '#', :class => "btn btn-sm" %></span> &ndash; <a href="">This actor tends to stick to the 'Hacktivist' profile, meaning they target entities to support/discourage a cause or idea</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <span class="label label-primary label-as-badge"><i class="glyphicon glyphicon-minus-sign"></i> Tactics, Techniques & Procedures (TTP)</span>
+          <ul id="ttp">
+            <li>
+              <span class="label label-info label-as-badge"><i class="glyphicon glyphicon-minus-sign"></i> Methods</span>
+              <ul id="md5">
+                <li>
+                  <span><i class="glyphicon glyphicon-info-sign"></i><%= link_to ' Distributed Denial of Service', '#', :class => "btn btn-sm" %></span> &ndash; <a href="">This actor mainly uses Distributed Denial of Service (DDoS) to achieve their goals</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
         <li>
           <span class="label label-primary label-as-badge"><i class="glyphicon glyphicon-minus-sign"></i> Indicators of Attack & Compromise (IOAC)</span>
-          <ul id="ipv4C2">
+          <ul id="ioac">
+            <li>
+              <span class="label label-danger label-as-badge"><i class="glyphicon glyphicon-minus-sign"></i> MD5 Hashes</span>
+              <ul id="md5">
+                <li>
+                  <span><i class="glyphicon glyphicon-info-sign"></i><%= link_to ' ef64872d986a0a5051bfe3b682f14640', feeds_ioc_path(:ioc => 'ef64872d986a0a5051bfe3b682f14640'), :class => "btn btn-sm" %></span> &ndash; <a href="">This actor utilizes home-grown malware</a>
+                </li>
+              </ul>
+            </li>
             <li>
               <span class="label label-warning label-as-badge"><i class="glyphicon glyphicon-minus-sign"></i> IPv4 C2 Addresses</span>
-              <ul id="element">
+              <ul id="ipv4c2">
                 <li>
                   <span><i class="glyphicon glyphicon-info-sign"></i><%= link_to ' 8.8.8.8', feeds_ioc_path(:ioc => '8.8.8.8'), :class => "btn btn-sm" %></span> &ndash; <a href="">This actor utilizes Google's open DNS server</a>
                 </li>
@@ -27,22 +56,6 @@
               <ul id="dnsc2">
                 <li>
                   <span><i class="glyphicon glyphicon-info-sign"></i><%= link_to ' c2.urpwned.com', feeds_ioc_path(:ioc => 'c2.urpwned.com'), :class => "btn btn-sm" %></span> &ndash; <a href="">Primary C2 server</a>
-                </li>
-                <li>
-                  <span><i class="glyphicon glyphicon-info-sign"></i><%= link_to ' alt-c2.urpwned.com', feeds_ioc_path(:ioc => 'alt-c2.urpwned.com'), :class => "btn btn-sm" %></span> &ndash; <a href="">Alternate C2 server</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <span class="label label-primary label-as-badge"><i class="glyphicon glyphicon-minus-sign"></i> Tactics, Techniques & Procedures (TTP)</span>
-          <ul id="ttp">
-            <li>
-              <span class="label label-danger label-as-badge"><i class="glyphicon glyphicon-minus-sign"></i> MD5 Hashes</span>
-              <ul id="md5">
-                <li>
-                  <span><i class="glyphicon glyphicon-info-sign"></i><%= link_to ' ef64872d986a0a5051bfe3b682f14640', feeds_ioc_path(:ioc => 'ef64872d986a0a5051bfe3b682f14640'), :class => "btn btn-sm" %></span> &ndash; <a href="">This actor utilizes home-grown malware</a>
                 </li>
               </ul>
             </li>
