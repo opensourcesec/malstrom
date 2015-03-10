@@ -31,6 +31,7 @@ gem 'acts-as-taggable-on'
 gem 'kaminari'
 gem 'docsplit'
 
+
 #assets
 gem 'jquery-ui-rails'
 gem 'jquery-datatables-rails', '~> 3.1.1'

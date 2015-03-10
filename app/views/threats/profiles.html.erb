@@ -1,13 +1,70 @@
-<h2>Threat Profiles <span class="glyphicon glyphicon-user"></span></h2>
-
+<h2>Threat Profiles <span class="glyphicon glyphicon-user"></span>
+  <button type="button" class="btn btn-success glyphicon glyphicon-plus" data-toggle="modal" data-target="#threat-modal"></button>
+</h2>
 <% profiles = Dir["app/views/threats/profile_archive/_*"] %>
 
 <div class="col-xs-6">
+  <div class="well">
     <div class="list-group">
+      <% count = 1 %>
       <% profiles.each do |item| %>
         <% item_name = File.basename(item, '.html.erb') %>
           <% profile = item_name[1..-1] %>
-          <%= link_to "#{profile}", threats_analysis_path(:profile => profile), :class => 'list-group-item' %>
+          <%= link_to "#{count}. #{profile}", threats_analysis_path(:profile => profile), :class => 'list-group-item' %>
+          <% count += count %>
       <% end %>
     </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="threat-modal" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="editLabel">New Threat Profile</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag @new_profile, html: {action: :new_profile}, multipart: true do %>
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-primary">Generate From Tag</button>
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+            <h5><span class="glyphicon glyphicon-list"></span> Profile Details</h5>
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Template <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Default</a></li>
+                </ul>
+              </div><!-- /btn-group -->
+                <%= text_field(:passwd, :box, :class => "form-control", :placeholder => "Profile Name") %>
+            </div><!-- /input-group -->
+            <div class="input-group">
+              <b>Modus Operandi</b><%= text_field(:passwd, :box, :class => "form-control", :placeholder => "Nation-state actor") %>
+            </div><!-- /input-group -->
+            <div class="input-group">
+              <b>Tactics & Techniques</b><%= text_field(:passwd, :box, :class => "form-control", :placeholder => "Spearphishing, Custom Exploits") %>
+            </div><!-- /input-group -->
+            <h5><span class="glyphicon glyphicon-tags"></span> Tags</h5>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="input-group">
+                  <%= text_field(:tag_list, :new_profile, :class => "form-control", :placeholder => "APT1, Espionage") %>
+                  <span class="input-group-btn">
+                    <%# submit_tag("Create", :class => "btn btn-success")%>
+                </span>
+                </div><!-- /input-group -->
+              </div><!-- /.col-lg-6 -->
+            </div>
+        <% end %>
+        </div><!-- /.col-lg-6 -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

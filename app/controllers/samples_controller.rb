@@ -2,6 +2,7 @@ require 'digest'
 require 'analyzer'
 require 'hex_string'
 require 'archive/zip'
+require 'archive/zip/codec/traditional_encryption'
 
 class SamplesController < ApplicationController
   before_filter :authenticate_user!
@@ -12,10 +13,17 @@ class SamplesController < ApplicationController
 
   # malware downloads
   def download_malz
-    send_data File.open("app/assets/malware/#{params[:sample]}", 'rb').read, :filename => "#{params[:sample]}"
-  end
-  helper_method :download_malz
+    file_name = params[:sample]
+    base_name = File.basename(file_name, '.*')
 
+    Archive::Zip.archive("tmp/#{base_name}.zip", # destination ZIP file
+       "app/assets/malware/#{file_name}", # source file to add to ZIP
+       #:encryption_codec => Archive::Zip::Codec::TraditionalEncryption, # encryption codec
+       :password => 'infected') # ZIP password
+
+    send_file "tmp/#{base_name}.zip", :type => 'application/octet-stream'
+
+  end
 
   # malware upload function
   def upload_malz
