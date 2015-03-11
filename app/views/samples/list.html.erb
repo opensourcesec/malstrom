@@ -52,6 +52,7 @@
         <h4 class="modal-title" id="editLabel">Sample Upload</h4>
       </div>
       <div class="modal-body">
+        <div class="well">
         <%= form_tag @sample, html: {action: :upload_malz}, multipart: true do %>
             <%= file_field_tag 'malz' %>
             <h5><span class="glyphicon glyphicon-compressed"></span> Compressed?</h5>
@@ -62,7 +63,7 @@
             <%= check_box_tag(:box) %>
             <%= label_tag(:box, "Unzip") %>
          </span>
-                  <%= text_field(:passwd, :box, :class => "form-control", :placeholder => "password (if encrypted)") %>
+                  <%= text_field(:passwd, :box, :class => "form-control", :placeholder => "password") %>
                 </div>
               </div><!-- /.col-lg-6 -->
             </div>
@@ -78,6 +79,7 @@
               </div><!-- /.col-lg-6 -->
             </div>
         <% end %>
+       </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
