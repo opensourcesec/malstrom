@@ -7,6 +7,7 @@ class FindArtifacts
       if match == nil
       elsif Element.exists?(:value => match)
       else
+        match = match.downcase
         @ip = Element.create do |i|
           i.value = match
           i.kind = 'IP'
@@ -24,6 +25,7 @@ class FindArtifacts
       if match == nil
       elsif Element.exists?(:value => match)
       else
+        match = match.downcase
         @domain = Element.create do |i|
           i.value = match
           i.kind = 'Domain'
@@ -41,6 +43,7 @@ class FindArtifacts
       if match == nil
       elsif Element.exists?(:value => match)
       else
+        match = match.downcase
         @domain = Element.create do |i|
           i.value = match
           i.kind = 'MD5'

@@ -63,8 +63,10 @@ def pedumper(fi)
 		end
 	rescue
 		resource_data = "Error. Could not parse the resources<br /><br />"
-	end
-  return packban + packer + secban + section_headers + section_data + resban + resource_headers + resource_data
+  end
+
+  data = "#{packban} #{packer} #{secban} #{section_headers} #{section_data} #{resban} #{resource_headers} #{resource_data}"
+  return data
 end
 
 

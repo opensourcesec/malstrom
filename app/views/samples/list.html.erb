@@ -55,18 +55,18 @@
         <div class="well">
         <%= form_tag @sample, html: {action: :upload_malz}, multipart: true do %>
             <%= file_field_tag 'malz' %>
-            <h5><span class="glyphicon glyphicon-compressed"></span> Compressed?</h5>
+            <!--<h5><span class="glyphicon glyphicon-compressed"></span> Compressed?</h5>
             <div class="row">
               <div class="col-lg-6">
                 <div class="input-group">
           <span class="input-group-addon">
-            <%= check_box_tag(:box) %>
-            <%= label_tag(:box, "Unzip") %>
+            <%# check_box_tag(:box) %>
+            <%# label_tag(:box, "Unzip") %>
          </span>
-                  <%= text_field(:passwd, :box, :class => "form-control", :placeholder => "password") %>
+                  <%# text_field(:passwd, :box, :class => "form-control", :placeholder => "password") %>
                 </div>
               </div><!-- /.col-lg-6 -->
-            </div>
+            <!--</div>-->
             <h5><span class="glyphicon glyphicon-tags"></span> Tags</h5>
             <div class="row">
               <div class="col-lg-6">
