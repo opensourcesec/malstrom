@@ -3,13 +3,13 @@ development:
   encoding: unicode
   database: malstrom
   pool: 5
-  username: malik
-  password: MalstromRules
+  username: 
+  password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: malstrom
   pool: 5
-  username: malik
-  password: MalstromRules
+  username:
+  password:
