@@ -6,6 +6,7 @@ Open-Source Threat Intelligence Platform
 Installation
 ---------
 * Clone repository
+* Edit app/assets/vt.key and input your VirusTotal API key as the only line in the file
 * cd into project directory and run 'bundle install'
 * setup the database.yml config file for your chosen DB
 * Type 'rake db:migrate' to run database migrations
