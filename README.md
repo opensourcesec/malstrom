@@ -7,12 +7,12 @@ A tool for threat tracking. From the hands of an Incident Response and Forensics
 Screenshots
 -----------
 ![alt tag] (docs/malstrom_dash.png)
-![alt tag] (feed_list.png)
-![alt tag] (malware_samples.png)
-![alt tag] (sample_analysis.png)
-![alt tag] (tag_cloud.png)
-![alt tag] (ioc_imports.png)
-![alt tag] (yara_rules.png)
+![alt tag] (docs/feed_list.png)
+![alt tag] (docs/malware_samples.png)
+![alt tag] (docs/sample_analysis.png)
+![alt tag] (docs/tag_cloud.png)
+![alt tag] (docs/ioc_imports.png)
+![alt tag] (docs/yara_rules.png)
 
 Installation
 ---------
