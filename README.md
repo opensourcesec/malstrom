@@ -2,6 +2,17 @@
 
 Open-Source Threat Intelligence Platform
 ---------
+A tool for threat tracking. From the hands of an Incident Response and Forensics analyst with a love for hunting and eradicating malware and protecting computer systems.
+
+Screenshots
+-----------
+![alt tag] (docs/malstrom_dash.png)
+![alt tag] (feed_list.png)
+![alt tag] (malware_samples.png)
+![alt tag] (sample_analysis.png)
+![alt tag] (tag_cloud.png)
+![alt tag] (ioc_imports.png)
+![alt tag] (yara_rules.png)
 
 Installation
 ---------
