@@ -6,12 +6,19 @@ A tool for threat tracking. From the hands of an Incident Response and Forensics
 
 Screenshots
 -----------
+### Dashboard
 ![alt tag] (docs/malstrom_dash.png)
+### Threat Feeds
 ![alt tag] (docs/feed_list.png)
+### Malware Samples
 ![alt tag] (docs/malware_samples.png)
+### Malware File Details
 ![alt tag] (docs/sample_analysis.png)
+### Threat Tag Cloud
 ![alt tag] (docs/tag_cloud.png)
+### IOC Extraction and Storage
 ![alt tag] (docs/ioc_imports.png)
+### YARA Rule Storage
 ![alt tag] (docs/yara_rules.png)
 
 Installation
