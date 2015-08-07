@@ -2,7 +2,7 @@
 
 Open-Source Threat Intelligence Platform
 ---------
-A tool for threat tracking. From the hands of an Incident Response and Forensics analyst with a love for hunting and eradicating malware and protecting computer systems.
+Not your average threat intelligence platform. Malstrom aims to be a repository, not just for threat tracking and forensic artifact storage, but also stores YARA rules and notes for investigation, and will soon be able to correlate metadata for attribution beyond passive data analysis 
 
 Screenshots
 -----------
