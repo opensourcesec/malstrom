@@ -1,11 +1,12 @@
 ![alt tag](app/assets/images/Malstrom.png)  
 
 Cyber Intelligence Management Platform
-[![Build Status](https://travis-ci.org/byt3smith/malstrom.svg?branch=master)](https://travis-ci.org/byt3smith/malstrom)
 ---------
+[![Build Status](https://travis-ci.org/byt3smith/malstrom.svg?branch=master)](https://travis-ci.org/byt3smith/malstrom)
+
 Malstrom aims to be a repository for threat tracking and forensic artifacts, but also stores YARA rules and notes for investigation
-Screenshots
------------
+
+
 ### Dashboard
 ![alt tag] (docs/malstrom_dash.png)
 ### Threat Feeds
