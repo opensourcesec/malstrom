@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.4'
 
 gem 'rails', '4.1.0.rc2'
+gem 'rake', '10.2.2'
 gem 'pg'
 gem 'sqlite3'
 gem 'delayed_job_active_record'

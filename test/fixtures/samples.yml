@@ -3,11 +3,9 @@
 one:
   filename: MyString
   SHA256: MyString
-  content_type: MyString
-  description: MyText
+  malz_content_type: MyString
 
 two:
   filename: MyString
   SHA256: MyString
-  content_type: MyString
-  description: MyText
+  malz_content_type: MyString

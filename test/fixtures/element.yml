@@ -2,8 +2,8 @@
 
 one:
   value: MyString
-  type: MyText
+  kind: MyText
 
 two:
   value: MyString
-  type: MyText
+  kind: MyText
