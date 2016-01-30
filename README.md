@@ -1,9 +1,9 @@
 ![alt tag](app/assets/images/Malstrom.png)  
 
-Open-Source Threat Intelligence Platform
+Cyber Intelligence Management Platform
+[![Build Status](https://travis-ci.org/byt3smith/malstrom.svg?branch=master)](https://travis-ci.org/byt3smith/malstrom)
 ---------
-Not your average threat intelligence platform. Malstrom aims to be a repository, not just for threat tracking and forensic artifact storage, but also stores YARA rules and notes for investigation, and will soon be able to correlate metadata for attribution beyond passive data analysis 
-
+Malstrom aims to be a repository for threat tracking and forensic artifacts, but also stores YARA rules and notes for investigation
 Screenshots
 -----------
 ### Dashboard
