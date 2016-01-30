@@ -90,23 +90,3 @@ section {
 .css2 { font-size: 1.2em; }
 .css3 { font-size: 1.4em; }
 .css4 { font-size: 1.6em; }
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  padding-top: 5px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  color: gray;
-  /* Set the fixed height of the footer here */
-  height: 30px;
-}
-
-body { padding-bottom: 70px; }

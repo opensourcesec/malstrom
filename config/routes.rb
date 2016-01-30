@@ -58,7 +58,7 @@ Malstrom::Application.routes.draw do
   post "samples/add_note" => "samples#add_note"
 
   get "samples/remove_rule" => "samples#remove_rule"
-  
+
   get "samples/new_yara" => "samples#new_yara"
 
   post "samples/save_sig" => "samples#process_sig"
@@ -66,10 +66,10 @@ Malstrom::Application.routes.draw do
   post "samples/addrule" => "samples#add_rule"
 
   #if Rails.env.production?
-  devise_for :users, :controllers => { :registrations => "registrations" } 
+  #devise_for :users, :controllers => { :registrations => "registrations" } 
   #else
-  #devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
-  #resources :users
+  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}, :path => "d"
+  resources :users
   #end
 
   root :to => "home#index"
