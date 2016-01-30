@@ -1,4 +1,8 @@
 language: ruby
+
+rvm:
+  - 2.1.4
+
 install: bundle install
 
 gemfile:
