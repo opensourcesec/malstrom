@@ -9,8 +9,6 @@ Malstrom aims to be a repository for threat tracking and forensic artifacts, but
 
 ### Dashboard
 ![alt tag] (docs/malstrom_dash.png)
-### Threat Feeds
-![alt tag] (docs/feed_list.png)
 ### Malware Samples
 ![alt tag] (docs/malware_samples.png)
 ### Malware File Details
