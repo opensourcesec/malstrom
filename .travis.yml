@@ -7,3 +7,6 @@ install: bundle install
 
 gemfile:
   - Gemfile
+
+before_script:
+  - bin/rake db:create db:migrate
