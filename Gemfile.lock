@@ -235,7 +235,6 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   simple_form
   spring
-  sqlite3
   turbolinks
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
