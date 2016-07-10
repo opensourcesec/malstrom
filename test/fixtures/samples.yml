@@ -2,7 +2,7 @@
 
 one:
   filename: MyString
-  SHA256: MyString
+  sha256: MyString
   malz_content_type: MyString
 
 two:
