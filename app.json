@@ -1,0 +1,7 @@
+{
+  "name": "malstrom",
+  "description": "Cyber intelligence management repository",
+  "repository": "https://github.com/byt3smith/malstrom.git",
+  "logo": "https://raw.githubusercontent.com/byt3smith/malstrom/master/app/assets/images/malstrom_icon1.png",
+  "keywords": ["ruby", "rails", "malstrom", "threat intel"]
+}
