@@ -7,19 +7,23 @@ Cyber Intelligence Management Platform
 
 Malstrom aims to be a repository for threat tracking and forensic artifacts, but also stores YARA rules and notes for investigation
 
-
 ### Dashboard
-![alt tag] (docs/malstrom_dash.png)
+![alt tag](docs/malstrom_dash.png)
+
 ### Malware Samples
-![alt tag] (docs/malware_samples.png)
+![alt tag](docs/malware_samples.png)
+
 ### Malware File Details
-![alt tag] (docs/sample_analysis.png)
+![alt tag](docs/sample_analysis.png)
+
 ### Threat Tag Cloud
-![alt tag] (docs/tag_cloud.png)
+![alt tag](docs/tag_cloud.png)
+
 ### IOC Extraction and Storage
-![alt tag] (docs/ioc_imports.png)
+![alt tag](docs/ioc_imports.png)
+
 ### YARA Rule Storage
-![alt tag] (docs/yara_rules.png)
+![alt tag](docs/yara_rules.png)
 
 Installation
 ---------
