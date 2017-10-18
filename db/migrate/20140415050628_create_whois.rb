@@ -1,4 +1,4 @@
-class CreateWhois < ActiveRecord::Migration
+class CreateWhois < ActiveRecord::Migration[4.2]
   def change
     create_table :whois do |t|
       t.string :country

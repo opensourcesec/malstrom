@@ -4,7 +4,7 @@
 if ActiveRecord.gem_version >= Gem::Version.new('5.0')
   class ChangeCollationForTagNames < ActiveRecord::Migration[4.2]; end
 else
-  class ChangeCollationForTagNames < ActiveRecord::Migration; end
+  class ChangeCollationForTagNames < ActiveRecord::Migration[4.2]; end
 end
 ChangeCollationForTagNames.class_eval do
   def up
