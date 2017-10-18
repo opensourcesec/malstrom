@@ -2,7 +2,7 @@ require 'find_artifacts'
 require 'docsplit'
 
 class FeedsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def list
     # Local var for Feed listing
