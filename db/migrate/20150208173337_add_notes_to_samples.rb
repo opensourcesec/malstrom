@@ -1,4 +1,4 @@
-class AddNotesToSamples < ActiveRecord::Migration
+class AddNotesToSamples < ActiveRecord::Migration[4.2]
   def change
     add_column :samples, :notes, :text
   end

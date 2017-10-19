@@ -1,4 +1,4 @@
-class ChangeTagsToArray < ActiveRecord::Migration
+class ChangeTagsToArray < ActiveRecord::Migration[4.2]
   def change
   end
 end

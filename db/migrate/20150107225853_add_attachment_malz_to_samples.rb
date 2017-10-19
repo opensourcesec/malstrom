@@ -1,4 +1,4 @@
-class AddAttachmentMalzToSamples < ActiveRecord::Migration
+class AddAttachmentMalzToSamples < ActiveRecord::Migration[4.2]
   def self.up
     change_table :samples do |t|
       t.attachment :malz

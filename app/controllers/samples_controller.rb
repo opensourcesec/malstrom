@@ -5,7 +5,7 @@ require 'archive/zip'
 require 'archive/zip/codec/traditional_encryption'
 
 class SamplesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def list
     @all_malz = Sample.all

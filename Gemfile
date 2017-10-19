@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
-ruby '2.1.4'
+ruby '2.4.2'
 
-gem 'rails', '4.1.0.rc2'
-gem 'rake', '10.2.2'
+gem 'rails'
+gem 'rake'
 gem 'pg'
 #gem 'sqlite3'
 gem 'delayed_job_active_record'
-gem 'sass-rails', '~> 4.0.2'
+gem 'sass-rails'
 gem 'rails_12factor'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
@@ -40,6 +40,5 @@ gem 'jquery-datatables-rails', '~> 3.1.1'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :mri_21, :rbx]
-  gem 'quiet_assets'
   gem 'rails_layout'
 end

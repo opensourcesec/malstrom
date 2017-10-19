@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
     redirect_to root_path
   end
 
-  before_filter :update_sanitized_params, if: :devise_controller?
+  before_action :update_sanitized_params, if: :devise_controller?
 
   def update_sanitized_params
     devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, :email, :password, :password_confirmation)}
