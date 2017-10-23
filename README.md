@@ -2,7 +2,7 @@
 
 Cyber Intelligence Management Platform
 ---------
-[![Ruby](https://img.shields.io/badge/ruby-2.4.2-green.svg)
+[![Ruby](https://img.shields.io/badge/ruby-2.4.2-green.svg)]()
 [![Build Status](https://travis-ci.org/byt3smith/malstrom.svg?branch=master)](https://travis-ci.org/byt3smith/malstrom)
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
