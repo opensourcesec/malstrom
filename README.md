@@ -3,7 +3,7 @@
 Cyber Intelligence Management Platform
 ---------
 [![Ruby](https://img.shields.io/badge/ruby-2.4.2-green.svg)]()
-[![Build Status](https://travis-ci.org/byt3smith/malstrom.svg?branch=master)](https://travis-ci.org/byt3smith/malstrom)
+[![Build Status](https://travis-ci.org/opensourcesec/malstrom.svg?branch=master)](https://travis-ci.org/opensourcesec/malstrom)
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 Malstrom aims to be a repository for threat tracking and forensic artifacts, but also stores YARA rules and notes for investigation
